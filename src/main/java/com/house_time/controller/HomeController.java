@@ -16,7 +16,12 @@ import org.springframework.web.servlet.ModelAndView;
 			
 		}
 	
-		
+		@RequestMapping(method=RequestMethod.GET,value ="/sobre")
+		public ModelAndView sobre() {
+			ModelAndView mv = new ModelAndView("home/sobre");
+			return mv;
+			
+		}
 		
 		
 
