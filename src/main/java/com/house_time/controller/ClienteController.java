@@ -1,0 +1,61 @@
+package com.house_time.controller;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.house_time.models.Cliente;
+import com.house_time.repositorios.ClienteRepositorio;
+
+@Controller
+@RequestMapping("/cliente")
+public class ClienteController {
+
+	@Autowired
+	private ClienteRepositorio clientes;
+
+	@GetMapping
+	public ModelAndView listar() {
+
+		ModelAndView modelAndView = new ModelAndView("cliente/lista-clientes");
+
+		modelAndView.addObject("clientes", clientes.findAll());
+
+		return modelAndView;
+	}
+
+	@GetMapping("/novo")
+	public ModelAndView novo(Cliente cliente) {
+
+		ModelAndView modelAndView = new ModelAndView("cliente/cadastrousuario1");
+
+		modelAndView.addObject(cliente);
+
+		return modelAndView;
+	}
+
+	@PostMapping("/salvar")
+	public ModelAndView salvar(@Valid Cliente cliente, BindingResult result, RedirectAttributes attributes) {
+
+		
+		if (result.hasErrors()) { 
+			System.out.println(result.getErrorCount());
+			System.out.println(result.getAllErrors());
+			return novo(cliente); }
+		
+
+		clientes.save(cliente);
+
+		attributes.addFlashAttribute("mensagem", "Cliente salvo com sucesso!!");
+		return new ModelAndView("redirect:/cliente");
+
+	}
+}

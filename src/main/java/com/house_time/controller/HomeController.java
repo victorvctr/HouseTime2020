@@ -9,20 +9,21 @@ import org.springframework.web.servlet.ModelAndView;
 	@Controller
 
 	public class HomeController {
-		@RequestMapping(method=RequestMethod.GET,value ="/iniciar")
+		@RequestMapping(method=RequestMethod.GET,value ="/")
 		public ModelAndView inicio() {
-			ModelAndView mv = new ModelAndView("home/index");
+			ModelAndView mv = new ModelAndView("/index");
 			return mv;
 			
 		}
 	
 		@RequestMapping(method=RequestMethod.GET,value ="/sobre")
 		public ModelAndView sobre() {
-			ModelAndView mv = new ModelAndView("home/sobre");
+			ModelAndView mv = new ModelAndView("/sobre");
 			return mv;
 			
 		}
-		
-		
+
+	
+	
 
 }

@@ -1,5 +1,6 @@
-<!doctype html>
-<html lang="pt-br">
+<!Doctype html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
@@ -13,7 +14,7 @@
     <header>
         <!--menu basico-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a href="/iniciar"><img src="imagem/housetime.png" width="60" height="60" class="d-inline-block"></a>
+            <a href="/"><img src="imagem/housetime.png" width="60" height="60" class="d-inline-block"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="alternanavegacao">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -21,7 +22,7 @@
             <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="/iniciar">Início <span class="sr-only"></span></a>
+                        <a class="nav-link" href="/">Início <span class="sr-only"></span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contato.html">Contato</a></li>
@@ -29,7 +30,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sobre Nós</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="sobre.html">A Empresa</a>
+                            <a class="dropdown-item" href="/sobre">A Empresa</a>
 
                             <button type="button" class="btn btn-light" data-toggle="modal" data-target="#ModalLongoExemplo">
                                 Politicas de Privacidade
@@ -92,7 +93,7 @@
                         
                     </div>
                     <div class="d-flex justify-content-center align-items-center m-1 p-1">
-                        <a href="cadastrousuario.html"> <input type="button" name=" " value="Cadastre-se"></a>
+                        <a href="/cliente/novo"> <input type="button" name=" " value="Cadastre-se"></a>
                     </div>
                 </section>
             </form>

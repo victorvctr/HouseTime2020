@@ -1,14 +1,14 @@
-<!doctype html>
-<html lang="pt-br">
-
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <title>TIME HOUSE</title>
-    <link rel="icon" href="imagem/icone.jpeg" type="image/x-icon" />
+    <link rel="icon" href="imagem/relogio.png" type="image/x-icon" />
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="css/css.css">
+    <link href='css/css.css' rel='stylesheet'>
 </head>
 
 <header>
@@ -23,7 +23,7 @@
         <div id="conteudoNavbarSuportado" class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/iniciar">Início <span class="sr-only"></span></a>
+                    <a class="nav-link" href="/">Início <span class="sr-only"></span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="contato.html">Contato</a></li>
@@ -31,7 +31,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sobre Nós</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="sobre.html">A Empresa</a>
+                        <a class="dropdown-item" href="/sobre">A Empresa</a>
 
                         <button type="button" class="btn btn-light" data-toggle="modal" data-target="#ModalLongoExemplo">
                             Politicas de Privacidade
@@ -79,109 +79,23 @@
     </nav>
 </header>
 
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
-    </ol>
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img class="d-block w-100" src="imagem/bannerapple.png" alt="Primeiro Slide">
-        </div>
-        <div class="carousel-item">
-            <img class="d-block w-100" src="imagem/bannerfossil.jpg" alt="Segundo Slide">
-        </div>
-        <div class="carousel-item">
-            <img class="d-block w-100" src="imagem/bannermont.jpg" alt="Terceiro Slide">
-        </div>
-        <div class="carousel-item">
-            <img class="d-block w-100" src="imagem/bannersamsung.jpeg" alt="Quarto Slide Slide">
-        </div>
-        <div class="carousel-item">
-            <img class="d-block w-100" src="imagem/bannerxiaomi.png" alt="Quinto Slide Slide">
-        </div>
-        <div class="carousel-item">
-            <img class="d-block w-100" src="imagem/bannerdiesel.png" alt="Sexto Slide Slide">
-        </div>
-    </div>
-
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Anterior</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Próximo</span>
-    </a>
-</div>
-
 <body>
-    <!--Menu produtos-->
-    <div class="menu-prod">
-        <ul class="nav nav-pills nav-fill">
-            <li class="nav-item">
-                <a class="nav-link" href="apple.html">Apple</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="samsung.html">Samsung</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="diesel.html">Diesel</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="fossil.html">Fossil</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="montblanc.html">Mont Blanc</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="xiaomi.html">Xiaomi</a>
-            </li>
-        </ul>
-        <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
-    </div>
-
-    <div class="container-fluid banner">
-        <div class="row">
-            <div class="col">
-                <a href="apple.html" title="Conheça nossos produtos Apple!"><img class="d-block w-100" src="imagem/img-apple.png" style="padding-top: 5px;"></a>
-            </div>
-        </div>
-        <hr>
-
-        <div class="row">
-            <div class="col">
-                <a href="samsung.html" title="Conheça nossos produtos Samsung!"><img class="d-block w-100 h-100" src="imagem/img-samsung.png" style="padding-top: 10px;"></a>
-            </div>
-
-            <div class="col">
-                <a href="samsung.html" title="Conheça nossos produtos Samsung!"><img class="d-block w-100" src="imagem/img-samsung-1.png" style="padding-top: 10px;"></a>
-            </div>
-        </div>
-        <hr>
-
-        <div class="row">
-            <div class="col">
-                <a href="fossil.html" title="Conheça nossos produtos Fossil!"><img class="d-block w-50" src="imagem/img-fossil.png" style="margin: auto; padding-top: 10px;"></a>
-            </div>
-        </div>
-        <hr>
-
-        <div class="row">
-            <div class="col">
-                <a href="montblanc.html" title="conheça nossos produtos Mont Blanc!"><img class="d-block w-100 h-100" src="imagem/img-mont-blanc.jpg"></a>
-            </div>
-
-            <div class="col">
-                <a href="xiaomi.html" title="Conheça nossos produtos Xiaomi!"><img class="d-block w-100" src="imagem/img-xiaomi.png"></a>
-            </div>
-        </div>
-    </div>
+   <center><img class="logo-sobre" src="imagem/housetime.png"></center>
+ 
+    <h6 class="sobre-text">
+        <b>MISSÃO</b>
 <hr>
+        <p>A Relojoaria House Time existe única e exclusivamente para atender seus clientes, oferecendo o que há de melhor em produtos que agregam elegância, beleza e estilo, praticando preços justos e buscando sempre a excelência no atendimento. Buscamos o autoaperfeiçoamento para nos mantermos sempre competitivos e podermos oferecer o que nossos clientes merecem, o melhor.<br>
+
+        <center><b>VALORES</b></center>
+<hr>
+        <p>A empresa tem como prioridade a satisfação e bem estar dos clientes e de seus colaboradores. Acreditamos no valor do trabalho proveniente da ética profissional, moldando através dela, nossas atitudes.</p><br>
+
+        <b>VISÃO</b>
+<hr>
+        <p>A Relojoaria House Time busca ser referência nacional em qualidade de produtos e serviços.</p><link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap" rel="stylesheet"></h6>
+
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
@@ -245,13 +159,13 @@
                 <h6 class="text-uppercase font-weight-bold">Menu</h6>
                 <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                 <p>
-                    <a class="dark-grey-text" href="index.html">Início</a>
+                    <a class="dark-grey-text" href="/">Início</a>
                 </p>
                 <p>
                     <a class="dark-grey-text" href="contato.html">Contato</a>
                 </p>
                 <p>
-                    <a class="dark-grey-text" href="sobre.html">A Empresa</a>
+                    <a class="dark-grey-text" href="/sobre">A Empresa</a>
                 </p>
                 <p>
                     <a class="dark-grey-text" href="#" onclick="$('#ModalLongoExemplo').modal('show')">Termos de Uso</a>
@@ -261,7 +175,7 @@
                 </p>
 
             </div>
-            <!-- Grid column -->
+
 
             <!-- Grid column -->
             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
@@ -281,8 +195,6 @@
     <div class="footer-copyright text-center text-black-50 py-3 " style="background-color:#D3D3D3;">© 2019 Copyright:
         <a class="dark-grey-text" href="https://mdbootstrap.com/education/bootstrap/">7ForDeveloper</a>
     </div>
-    1
-
 </footer>
 
 </html>
