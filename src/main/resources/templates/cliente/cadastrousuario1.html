@@ -109,60 +109,71 @@
 		<input type="hidden" th:field="*{id}" />
 		<div class="cadastro-usu">
 			<h1 class="text-center">Cadastro de Usuário</h1>
-			<link href="https://fonts.googleapis.com/css?family=Comfortaa"
-				rel="stylesheet">
+			<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
 		</div>
-
-		<form>
-			<div class="container">
-				<div class="row">
-					<div class="col-sm">
+	
+		<div class="container">
+			<div class="row">
+                <div class="col-sm">
+					
 						Nome: <input type="text" name="Nome" class="form-control"
 							id="inputnome" placeholder="nome" th:field="*{nome}">
 					</div>
+					
+					
 					<div class="col-sm">
 						Sobrenome: <input type="text" name="Sobrenome"
 							class="form-control" id="inputnome" placeholder="sobrenome"
 							th:field="*{sobrenome}">
 					</div>
-
+					
+                 
 					<div class="col-sm">
 						Sexo: <input type="text" name="Sexo" class="form-control"
 							id="inputnome" placeholder="sexo" th:field="*{sexo}">
 					</div>
+				
+				
 					<div class="col-sm">
 						Celular: <input type="text" name="Celular" maxlength="11"
 							onkeypress='return event.charCode >= 48 && event.charCode <= 57'
 							class="form-control" id="inputcelular"
 							placeholder=" (xx) xxxxx-xxxx" th:field="*{celular}">
 					</div>
+					
+					
 					<div class="col-sm">
 						Data de nascimento: <input type="text" name="Nascimento"
 							class="form-control" placeholder=" dd/mm/aaaa"
 							th:field="*{nascimento}">
 					</div>
 				</div>
+				
 				<div class="row">
 					<div class="col-sm">
 						Rua: <input type="text" name="rua" class="form-control"
 							placeholder="Digite sua rua ou avenida e numero"
 							th:field="*{rua}">
 					</div>
-				</div>
-				<div class="row">
+				
+			
 					<div class="col-sm">
 						N: <input type="text" name="n" class="form-control"
 							placeholder="Digite sua rua ou avenida e numero" th:field="*{n}">
+					
 					</div>
 
 					<div class="col-sm">
 						Cidade: <input type="text" name="Cidade" class="form-control"
 							placeholder="Digite sua cidade" th:field="*{cidade}">
 					</div>
+					
 					<div class="col-sm">
 						Estado: <input type="text" name="Estado" class="form-control"
 							placeholder=" Digite seu estado" th:field="*{estado}">
+					
 					</div>
+					
 					<div class="col-sm">
 						País: <input type="text" name="Pais" class="form-control"
 							placeholder=" Digite seu país" th:field="*{pais}">
@@ -173,16 +184,29 @@
 					<div class="col-sm">
 						Bairro: <input type="text" name="Bairro" class="form-control"
 							placeholder=" Digite seu bairro" th:field="*{bairro}">
+					
 					</div>
-
+                
+					<div class="col-sm">
+						Email: <input type="text" name="Email" class="form-control"
+							placeholder=" Digite seu email" th:field="*{email}">
+					</div>
+					
+					
+					<div class="col-sm">
+						Senha: <input type="text" name="Senha" class="form-control"
+							placeholder=" Digite sua senha" th:field="*{senha}">
+					</div>
+					</div>
 
 					<div class="botao-form">
 						<button type="submit" class="btn btn-success btn-xl">Salvar</button>
 						<button type="reset" class="btn btn-danger btn-xl">Limpar</button>
 					</div>
 				</div>
+			
 		</form>
-	</form>
+
 
 
 </body>
