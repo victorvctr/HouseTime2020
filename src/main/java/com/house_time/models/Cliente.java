@@ -3,9 +3,12 @@ package com.house_time.models;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -13,9 +16,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Cliente {
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String nome;
 	private String sobrenome;
@@ -24,12 +27,9 @@ public class Cliente {
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date nascimento;
-	private String rua;
-	private int n;
-	private String cidade;
-	private String estado;
-	private String pais;
-	private String bairro;
+	@OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "endereco_id", nullable = false)
+    private Endereco endereco;
 	private String email;
 	private String senha;
 
@@ -97,52 +97,36 @@ public class Cliente {
 		this.nascimento = nascimento;
 	}
 
-	public String getRua() {
-		return rua;
+	public Endereco getEndereco() {
+		return endereco;
 	}
 
-	public void setRua(String rua) {
-		this.rua = rua;
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
 	}
 
-	public int getN() {
-		return n;
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (id ^ (id >>> 32));
+		return result;
 	}
 
-	public void setN(int n) {
-		this.n = n;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cliente other = (Cliente) obj;
+		if (id != other.id)
+			return false;
+		return true;
 	}
 
-	public String getCidade() {
-		return cidade;
-	}
-
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
-	}
-
-	public String getEstado() {
-		return estado;
-	}
-
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
-
-	public String getPais() {
-		return pais;
-	}
-
-	public void setPais(String pais) {
-		this.pais = pais;
-	}
-
-	public String getBairro() {
-		return bairro;
-	}
-
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
-	}
+	
 
 }

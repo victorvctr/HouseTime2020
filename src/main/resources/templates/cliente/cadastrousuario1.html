@@ -104,7 +104,10 @@
 	<form method="POST" th:object="${cliente}"
 		th:action="@{/cliente/salvar}">
 
+		
 		<input type="hidden" th:field="*{id}" />
+		<input type="hidden" th:field="*{endereco}" />
+		
 		<div class="cadastro-usu">
 			<h1 class="text-center">Cadastro de Usuário</h1>
 			<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
@@ -151,37 +154,37 @@
 					<div class="col-sm">
 						Rua: <input type="text" name="rua" class="form-control"
 							placeholder="Digite sua rua ou avenida e numero"
-							th:field="*{rua}">
+							th:field="*{endereco.rua}">
 					</div>
 				
 			
 					<div class="col-sm">
 						N: <input type="text" name="n" class="form-control"
-							placeholder="Digite sua rua ou avenida e numero" th:field="*{n}">
+							placeholder="Digite sua rua ou avenida e numero" th:field="*{endereco.n}">
 					
 					</div>
 
 					<div class="col-sm">
 						Cidade: <input type="text" name="Cidade" class="form-control"
-							placeholder="Digite sua cidade" th:field="*{cidade}">
+							placeholder="Digite sua cidade" th:field="*{endereco.cidade}">
 					</div>
 					
 					<div class="col-sm">
 						Estado: <input type="text" name="Estado" class="form-control"
-							placeholder=" Digite seu estado" th:field="*{estado}">
+							placeholder=" Digite seu estado" th:field="*{endereco.estado}">
 					
 					</div>
 					
 					<div class="col-sm">
 						País: <input type="text" name="Pais" class="form-control"
-							placeholder=" Digite seu país" th:field="*{pais}">
+							placeholder=" Digite seu país" th:field="*{endereco.pais}">
 					</div>
 				</div>
 
 				<div class="row">
 					<div class="col-sm">
 						Bairro: <input type="text" name="Bairro" class="form-control"
-							placeholder=" Digite seu bairro" th:field="*{bairro}">
+							placeholder=" Digite seu bairro" th:field="*{endereco.bairro}">
 					
 					</div>
                 

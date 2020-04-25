@@ -13,7 +13,9 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.house_time.models.Cliente;
+import com.house_time.models.Endereco;
 import com.house_time.repositorios.ClienteRepositorio;
+import com.house_time.repositorios.EnderecoRepositorio;
 
 @Controller
 @RequestMapping("/cliente")
@@ -22,10 +24,13 @@ public class ClienteController {
 	@Autowired
 	private ClienteRepositorio clientes;
 
+	@Autowired
+	private EnderecoRepositorio enderecos;
+
 	@GetMapping
 	public ModelAndView listar() {
 
-		ModelAndView modelAndView = new ModelAndView("cliente/lista-clientes");
+		ModelAndView modelAndView = new ModelAndView("cliente/sucesso");
 
 		modelAndView.addObject("clientes", clientes.findAll());
 
@@ -45,13 +50,15 @@ public class ClienteController {
 	@PostMapping("/salvar")
 	public ModelAndView salvar(@Valid Cliente cliente, BindingResult result, RedirectAttributes attributes) {
 
-		
-		if (result.hasErrors()) { 
-			System.out.println(result.getErrorCount());
-			System.out.println(result.getAllErrors());
-			return novo(cliente); }
-		
+		Endereco e = cliente.getEndereco();
+		if (result.hasErrors()) {
 
+			return novo(cliente);
+		}
+
+		enderecos.save(e);
+
+		cliente.setEndereco(e);
 		clientes.save(cliente);
 
 		attributes.addFlashAttribute("mensagem", "Cliente salvo com sucesso!!");

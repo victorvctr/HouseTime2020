@@ -18,7 +18,7 @@ import com.house_time.models.Produto;
 import com.house_time.repositorios.ProdutoRepositorio;
 
 @Controller
-@RequestMapping("/controller")
+@RequestMapping("/produto")
 public class ProdutoController {
 
 	@Autowired

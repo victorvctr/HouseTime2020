@@ -1,13 +1,16 @@
 package com.house_time.models;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Produto {
-	@Id
-	private long idProd;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long idProd;
 	private String sistema;
 	private String pulseira;
 	private String dimensao;
