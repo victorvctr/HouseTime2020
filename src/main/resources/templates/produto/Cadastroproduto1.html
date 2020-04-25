@@ -30,8 +30,10 @@
 
 <body>
 
+<form method="POST" th:object="${produto}"
+		th:action="@{/cliente/cadastrar}">
 
-<form action="Sobe" method="post" enctype="multipart/form-data">
+		<input type="hidden" th:field="*{idProd}" />
     <div class="cadastro-usu">
         <h1 class="text-center">Cadastro de Produtos</h1>
         <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
@@ -40,60 +42,58 @@
     
         <div class="container">
             <div class="row">
-                <div class="col-sm">
-                    Marca:
-                    <input type="text" name="Marca" class="form-control" id="inputmarca" placeholder=" Marca do produto">
-                </div>
-
-
+              
                 <div class="col-sm">
                     Modelo:
-                    <input type="text" name="Modelo" class="form-control" id="inputmodelo" placeholder=" Modelo do produto">
+                    <input type="text" name="Modelo" class="form-control" id="inputmodelo" placeholder=" Modelo do produto" th:field="*{modelo}">
                 </div>
                 <div class="col-sm">
                     Pulseira:
-                    <input type="text" name="Pulseira" class="form-control" placeholder=" Tipo de pulseira">
+                    <input type="text" name="Pulseira" class="form-control" placeholder=" Tipo de pulseira" th:field="*{pulseira}">
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-sm">
                     Dimensão:
-                    <input type="text" name="Dimensao" class="form-control" placeholder=" Dimesão do prosuto">
+                    <input type="text" name="Dimensao" class="form-control" placeholder=" Dimesão do prosuto" th:field="*{dimensao}">
                 </div>
                 <div class="col-sm">
                     Caixa:
-                    <input type="text" name="Caixa" class="form-control" placeholder=" Tipo de caixa">
+                    <input type="text" name="Caixa" class="form-control" placeholder=" Tipo de caixa" th:field="*{caixa}">
                 </div>
                 <div class="col-sm">
                     Genêro:
-                    <input type="text" name="Genero" class="form-control" placeholder=" Digite o genêro">
+                    <input type="text" name="Genero" class="form-control" placeholder=" Digite o genêro" th:field="*{genero}">
                 </div>
                 <div class="col-sm">
                     Valor:
-                    <input type="text" name="Valor" class="form-control" placeholder=" Digite o valor">
+                    <input type="text" name="Valor" class="form-control" placeholder=" Digite o valor" th:field="*{valor}">
                 </div>
                 <div class="col-sm">
                     Bateria:
-                    <input type="text" name="Bateria" class="form-control" placeholder=" Digite a bateria"></div>
+                    <input type="text" name="Bateria" class="form-control" placeholder=" Digite a bateria" th:field="*{bateria}">
+                    
+                    </div>
             </div>
 
             <div class="row">
                 <div class="col-sm">
                     Quantidade:
-                    <input type="text" name="Quantidade" class="form-control" placeholder=" Digite a quantidade">
+                    <input type="text" name="Quantidade" class="form-control" placeholder=" Digite a quantidade" th:field="*{quantidade}">
                 </div>
                 <div class="col-sm">
                     Cor:
-                    <input type="text" name="Cor" class="form-control" placeholder=" Digite a cor"></div>
+                    <input type="text" name="Cor" class="form-control" placeholder=" Digite a cor" th:field="*{cor}">
+                    </div>
 
                 <div class="col-sm">
                     Peso:
-                    <input type="text" name="Peso" class="form-control" placeholder="Digite o peso">
+                    <input type="text" name="Peso" class="form-control" placeholder="Digite o peso" th:field="*{peso}">
                 </div>
                 <div class="col-sm">
                     Sistema:
-                    <input type="text" name="Sistema" class="form-control" placeholder=" Digite o sistema">
+                    <input type="text" name="Sistema" class="form-control" placeholder=" Digite o sistema" th:field="*{sistema}">
                 </div>
                  <div class="col-sm">
                     Imagem:
