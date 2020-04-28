@@ -56,7 +56,7 @@ public class ProdutoController {
 
 		produtos.save(produto);
 
-		attributes.addFlashAttribute("mensagem", "Cliente salvo com sucesso!!");
+		attributes.addFlashAttribute("mensagem", "Produto salvo com sucesso!!");
 		return new ModelAndView("redirect:/produto");
 
 	}

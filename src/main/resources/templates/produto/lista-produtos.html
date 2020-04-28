@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>TIME HOUSE</title>
+<link rel="icon" href="/imagem/icone.jpeg" type="image/x-icon" />
+
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="/css/css.css">
+
+
+</head>
+<body>
+<div class="container">
+	<header>
+	<!--menu basico-->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a href="/"><img src="/imagem/housetime.png" width="60"
+			height="60" class="d-inline-block"></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#conteudoNavbarSuportado"
+			aria-controls="conteudoNavbarSuportado" aria-expanded="false"
+			aria-label="alternanavegacao">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+			<ul class="navbar-nav mr-auto">
+			
+				
+			</ul>
+			
+		</div>
+	</nav>
+</header>
+
+	<section class="aw-layout-content js-content layout-pagina">
+			<div class="row">
+				<h1 class="titulo-formulario">
+					<i class="fas fa-list-ol"></i>
+					Listagem de Produtos
+				</h1>
+			</div>
+			
+			<div class="alert alert-success alert-dismissible fade show" role="alert"
+			th:if="${!#strings.isEmpty(mensagem)}">
+			<i class="fa fa-check-circle"></i>
+				<span th:text="${mensagem}">
+					Mensagem sucesso!
+				</span>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    				<span aria-hidden="true">&times;</span>
+  				</button>
+			</div>
+			
+			<div class="form-row">
+				<div class="table-responsive-sm col-sm-12">
+					<table id="tabela-produtos"
+						class="table  table-sm table-striped  table-bordered  table-hover  table-condensed  js-sticky-table">
+						<thead>
+							<tr>
+								<th class="text-center" scope="col">Código</th>
+								<th scope="col">caixa</th>
+								<th scope="col">cor</th>
+								
+								<th scope="col" class="text-center">Ações</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="produto: ${prudutos}">
+								<td class="text-center" th:text="${produto.id}">123</td>
+								<td th:text="${produto.caixa}">123</td>
+								<td th:text="${produto.cor}">123</td>
+								
+								<td class="text-center">
+								<form method="POST"	th:onsubmit="'return confirm(\'Posso remover o produto da base de dados?\');'"
+										>
+										<a class="btn btn-primary btn-sm"
+											
+											th:title="Editar"> <i class="fa fa-pencil-alt"></i>
+										</a>
+										<button type="submit" class="btn btn-danger btn-sm" title="Excluir">
+											<span class="far fa-trash-alt"></span>
+										</button>
+									</form>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="5" th:if="${produtos.empty}">Nenhum produto
+									cadastrado!!</td>
+							</tr>
+	
+						</tbody>
+					</table>
+				</div>
+			</div>
+	</section>
+</div>
+</body>
+</html>

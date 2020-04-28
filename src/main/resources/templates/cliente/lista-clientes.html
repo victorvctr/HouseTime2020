@@ -125,13 +125,17 @@
 			
 			<div class="form-row">
 				<div class="table-responsive-sm col-sm-12">
-					<table id="tabela-produtos"
+					<table id="tabela-clientes"
 						class="table  table-sm table-striped  table-bordered  table-hover  table-condensed  js-sticky-table">
 						<thead>
 							<tr>
 								<th class="text-center" scope="col">Código</th>
 								<th scope="col">Nome</th>
+								<th scope="col">Sobrenome</th>
 								<th scope="col">Nascimento</th>
+								<th scope="col">Sexo</th>
+								<th scope="col">Celular</th>
+								
 								
 								<th scope="col" class="text-center">Ações</th>
 							</tr>
@@ -140,7 +144,10 @@
 							<tr th:each="cliente: ${clientes}">
 								<td class="text-center" th:text="${cliente.id}">123</td>
 								<td th:text="${cliente.nome}">123</td>
+								<td th:text="${cliente.sobrenome}">123</td>
 								<td th:text="${cliente.nascimento}">123</td>
+								<td th:text="${cliente.sexo}">123</td>
+								<td th:text="${cliente.celular}">123</td>
 								
 								<td class="text-center">
 								<form method="POST"	th:onsubmit="'return confirm(\'Posso remover o produto da base de dados?\');'"
