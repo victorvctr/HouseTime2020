@@ -129,8 +129,9 @@
 							th:field="*{sobrenome}">
 					</div>
 					<div class="col-sm">
-						Cpf: <input type="text" name="Cpf"
-							class="form-control" id="inputcpf" placeholder="cpf"
+					
+						Cpf: <input type="text" name="Cpf" maxlength="11" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+							class="form-control" id="inputcpf" placeholder="cpf" 
 							th:field="*{cpf}">
 					</div>
 				
