@@ -62,17 +62,35 @@
 						<thead>
 							<tr>
 								<th class="text-center" scope="col">Código</th>
+								<th scope="col">bateria</th>
 								<th scope="col">caixa</th>
 								<th scope="col">cor</th>
+								<th scope="col">dimensao</th>
+							
+								<th scope="col">modelo</th>
+								<th scope="col">peso</th>
+								<th scope="col">pulseira</th>
+								<th scope="col">quantidade</th>
+								<th scope="col">sistema</th>
+								<th scope="col">valor</th>
 								
 								<th scope="col" class="text-center">Ações</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr th:each="produto: ${prudutos}">
-								<td class="text-center" th:text="${produto.id}">123</td>
+								<td class="text-center" th:text="${produto.idProd}">123</td>
+								<td th:text="${produto.bateria}">123</td>
 								<td th:text="${produto.caixa}">123</td>
 								<td th:text="${produto.cor}">123</td>
+								<td th:text="${produto.dimensao}">123</td>
+								
+								<td th:text="${produto.modelo}">123</td>
+								<td th:text="${produto.peso}">123</td>
+								<td th:text="${produto.pulseira}">123</td>
+								<td th:text="${produto.quantidade}">123</td>
+								<td th:text="${produto.sistema}">123</td>
+								<td th:text="${produto.valor}">123</td>
 								
 								<td class="text-center">
 								<form method="POST"	th:onsubmit="'return confirm(\'Posso remover o produto da base de dados?\');'"

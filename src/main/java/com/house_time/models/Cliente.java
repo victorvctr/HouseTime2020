@@ -22,7 +22,7 @@ public class Cliente {
 	private long id;
 	private String nome;
 	private String sobrenome;
-	private String sexo;
+	private String cpf;
 	private String celular;
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
@@ -81,12 +81,13 @@ public class Cliente {
 		this.sobrenome = sobrenome;
 	}
 
-	public String getSexo() {
-		return sexo;
+
+	public String getCpf() {
+		return cpf;
 	}
 
-	public void setSexo(String sexo) {
-		this.sexo = sexo;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
 	public Date getNascimento() {

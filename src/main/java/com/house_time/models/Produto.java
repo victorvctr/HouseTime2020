@@ -15,7 +15,7 @@ public class Produto {
 	private String pulseira;
 	private String dimensao;
 	private String caixa;
-	private String genero;
+
 	private String bateria;
 	private String cor;
 	private String peso;
@@ -54,12 +54,7 @@ public class Produto {
 	public void setCaixa(String caixa) {
 		this.caixa = caixa;
 	}
-	public String getGenero() {
-		return genero;
-	}
-	public void setGenero(String genero) {
-		this.genero = genero;
-	}
+	
 	public String getBateria() {
 		return bateria;
 	}
