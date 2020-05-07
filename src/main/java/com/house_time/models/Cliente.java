@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -20,17 +22,33 @@ public class Cliente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	@NotBlank (message = "nome não pode ser nulo e nem vazio")
+	
 	private String nome;
+	@NotBlank (message = "sobrenome não pode ser nulo e nem vazio")
+	
 	private String sobrenome;
-	private String cpf;
+	@NotBlank (message = "cpf não pode ser nulo e nem vazio")
+	
+    private String cpf;
+	@NotBlank (message = "celular não pode ser nulo e nem vazio")
+	
 	private String celular;
+	
+	
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@NotNull (message = "data não pode ser nulo ")
 	private Date nascimento;
 	@OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "endereco_id", nullable = false)
     private Endereco endereco;
+	
+	@NotBlank (message = "email não pode ser nulo e nem vazio")
+	
 	private String email;
+	@NotBlank (message = "senha não pode ser nulo e nem vazio")
+	
 	private String senha;
 
 	public String getEmail() {

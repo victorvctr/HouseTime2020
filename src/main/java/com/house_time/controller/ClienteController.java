@@ -60,6 +60,9 @@ public class ClienteController {
 
 		cliente.setEndereco(e);
 		clientes.save(cliente);
+		
+		
+		
 
 		attributes.addFlashAttribute("mensagem", "Cliente salvo com sucesso!!");
 		return new ModelAndView("redirect:/cliente");

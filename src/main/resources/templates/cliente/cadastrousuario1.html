@@ -10,7 +10,7 @@
 
 <link rel="stylesheet" href="/css/css.css">
 <script type="text/javascript" src="/js/cep.js"></script>
-
+<script type="text/javascript" src="/js/validarEmail.js"></script>
     </head>
 
 <header>
@@ -101,7 +101,8 @@
 </header>
 
 <body>
-<script src="js/cep.js"></script>
+
+
 	<form method="POST" th:object="${cliente}"
 		th:action="@{/cliente/salvar}">
 
@@ -111,7 +112,7 @@
 		
 		<div class="cadastro-usu">
 			<h1 class="text-center">Cadastro de Usuário</h1>
-			<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+			
 		</div>
 	
 		<div class="container">
@@ -152,7 +153,7 @@
 				
 			<div class="row">
 					<div class="col-sm">
-						Cep: <input type="text" id="cep" value="" name="cep" class="form-control"
+						Cep: <input type="text" id="cep" value="" name="cep" maxlength="8" onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control"
 							placeholder="Digite sua rua ou avenida e numero" onblur="pesquisacep(this.value);"
 							th:field="*{endereco.cep}">
 					</div>
@@ -197,10 +198,12 @@
 					</div>
                 
 					<div class="col-sm">
-						Email: <input type="text" name="Email" class="form-control"
+						Email: <input type="email" name="Email"  class="form-control"
 							placeholder=" Digite seu email" th:field="*{email}">
 					</div>
-					
+			
+       
+        
 					
 					<div class="col-sm">
 						Senha: <input type="text" name="Senha" class="form-control"
@@ -209,7 +212,7 @@
 					</div>
 
 					<div class="botao-form">
-						<button type="submit" class="btn btn-success btn-xl">Salvar</button>
+						<button type="submit" class="btn btn-success btn-xl" onclick="return verifica()">Salvar</button>
 						<button type="reset" class="btn btn-danger btn-xl">Limpar</button>
 					</div>
 			
@@ -289,7 +292,7 @@
 					<a class="dark-grey-text" href="contato.jsp">Contato</a>
 				</p>
 				<p>
-					<a class="dark-grey-text" href="sobre">A Empresa</a>
+					<a class="dark-grey-text" href="/sobre">A Empresa</a>
 				</p>
 				<p>
 					<a class="dark-grey-text" href="">Termos de Uso</a>

@@ -11,6 +11,8 @@ public class Produto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long idProd;
+	private String nome;
+	private String marca;
 	private String sistema;
 	private String pulseira;
 	private String dimensao;
@@ -90,6 +92,18 @@ public class Produto {
 	}
 	public void setQuantidade(String quantidade) {
 		this.quantidade = quantidade;
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public String getMarca() {
+		return marca;
+	}
+	public void setMarca(String marca) {
+		this.marca = marca;
 	}
 	public String getImagem() {
 		return imagem;
