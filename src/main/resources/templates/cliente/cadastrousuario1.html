@@ -145,7 +145,7 @@
 					
 					
 					<div class="col-sm">
-						Data de nascimento: <input type="text" name="Nascimento"
+						Data de nascimento: <input type="date" name="Nascimento"
 							class="form-control" placeholder=" dd/mm/aaaa"
 							th:field="*{nascimento}">
 					</div>
@@ -153,9 +153,9 @@
 				
 			<div class="row">
 					<div class="col-sm">
-						Cep: <input type="text" id="cep" value="" name="cep" maxlength="8" onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control"
+						Cep: <input type="text" id="cep" value="" name="cep" maxlength="8" onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control" 
 							placeholder="Digite sua rua ou avenida e numero" onblur="pesquisacep(this.value);"
-							th:field="*{endereco.cep}">
+							th:field="*{endereco.cep}" required >
 					</div>
 				
 				
@@ -206,9 +206,13 @@
         
 					
 					<div class="col-sm">
-						Senha: <input type="text" name="Senha" class="form-control"
+						Senha: <input type="password" name="Senha" class="form-control"
 							placeholder=" Digite sua senha" th:field="*{senha}">
 					</div>
+					<div class="col-sm">
+					Confirmar Senha: <input type="password" class="form-control" 
+					placeholder=" Digite sua senha" id="confirmarSenha">
+				</div>
 					</div>
 
 					<div class="botao-form">

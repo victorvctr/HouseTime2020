@@ -2,6 +2,7 @@ package com.house_time.models;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -9,8 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -36,9 +36,10 @@ public class Cliente {
 	private String celular;
 	
 	
-	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
-	@NotNull (message = "data não pode ser nulo ")
+	@NotNull(message = "Data de nascimento é obrigatória!")
+	@Column(name = "data_nascimento", columnDefinition = "DATE")
+	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+	
 	private Date nascimento;
 	@OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "endereco_id", nullable = false)

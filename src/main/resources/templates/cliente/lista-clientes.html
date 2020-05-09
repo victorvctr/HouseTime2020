@@ -135,6 +135,8 @@
 								<th scope="col">Cpf</th>
 								<th scope="col">Nascimento</th>
 								<th scope="col">Celular</th>
+								<th scope="col">Email</th>
+								
 								
 								
 								<th scope="col" class="text-center">Ações</th>
@@ -148,6 +150,7 @@
 								<td th:text="${cliente.cpf}">123</td>
 								<td th:text="${cliente.nascimento}">123</td>
 								<td th:text="${cliente.celular}">123</td>
+								<td th:text="${cliente.email}">123</td>
 								
 								<td class="text-center">
 								<form method="POST"	th:onsubmit="'return confirm(\'Posso remover o produto da base de dados?\');'"
