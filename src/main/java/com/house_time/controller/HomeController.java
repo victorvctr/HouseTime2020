@@ -22,7 +22,12 @@ import org.springframework.web.servlet.ModelAndView;
 			return mv;
 			
 		}
-
+		@RequestMapping(method=RequestMethod.GET,value ="/contato")
+		public ModelAndView contato() {
+			ModelAndView mv = new ModelAndView("/contato");
+			return mv;
+			
+		}
 	
 	
 
