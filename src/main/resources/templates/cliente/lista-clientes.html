@@ -143,14 +143,14 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr th:each="cliente: ${clientes}">
-								<td class="text-center" th:text="${cliente.id}">123</td>
-								<td th:text="${cliente.nome}">123</td>
-								<td th:text="${cliente.sobrenome}">123</td>
-								<td th:text="${cliente.cpf}">123</td>
-								<td th:text="${cliente.nascimento}">123</td>
-								<td th:text="${cliente.celular}">123</td>
-								<td th:text="${cliente.email}">123</td>
+							<tr th:each="usuario: ${usuarios}">
+								<td class="text-center" th:text="${usuario.id}">123</td>
+								<td th:text="${usuario.nome}">123</td>
+								<td th:text="${usuario.sobrenome}">123</td>
+								<td th:text="${usuario.cpf}">123</td>
+								<td th:text="${usuario.nascimento}">123</td>
+								<td th:text="${usuario.celular}">123</td>
+								<td th:text="${usuario.email}">123</td>
 								
 								<td class="text-center">
 								<form method="POST"	th:onsubmit="'return confirm(\'Posso remover o produto da base de dados?\');'"
@@ -166,7 +166,7 @@
 								</td>
 							</tr>
 							<tr>
-								<td colspan="5" th:if="${clientes.empty}">Nenhum cliente
+								<td colspan="5" th:if="${usuario.empty}">Nenhum cliente
 									cadastrado!!</td>
 							</tr>
 	

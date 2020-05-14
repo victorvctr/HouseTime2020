@@ -17,7 +17,9 @@ import javax.validation.constraints.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-public class Cliente {
+
+
+public class Usuario {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +30,7 @@ public class Cliente {
 	@NotBlank (message = "sobrenome não pode ser nulo e nem vazio")
 	
 	private String sobrenome;
-	@NotBlank (message = "cpf não pode ser nulo e nem vazio")
+	@NotNull(message = "cpf não pode ser nulo e nem vazio")
 	
     private String cpf;
 	@NotBlank (message = "celular não pode ser nulo e nem vazio")
@@ -141,7 +143,7 @@ public class Cliente {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Cliente other = (Cliente) obj;
+		Usuario other = (Usuario) obj;
 		if (id != other.id)
 			return false;
 		return true;

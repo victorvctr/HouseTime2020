@@ -12,17 +12,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.house_time.models.Cliente;
+import com.house_time.models.Usuario;
 import com.house_time.models.Endereco;
-import com.house_time.repositorios.ClienteRepositorio;
+import com.house_time.repositorios.UsuarioRepositorio;
 import com.house_time.repositorios.EnderecoRepositorio;
 
 @Controller
 @RequestMapping("/cliente")
-public class ClienteController {
+public class UsuarioController {
 
 	@Autowired
-	private ClienteRepositorio clientes;
+	private UsuarioRepositorio usuarios;
 
 	@Autowired
 	private EnderecoRepositorio enderecos;
@@ -32,40 +32,40 @@ public class ClienteController {
 
 		ModelAndView modelAndView = new ModelAndView("cliente/lista-clientes");
 
-		modelAndView.addObject("clientes", clientes.findAll());
+		modelAndView.addObject("usuarios", usuarios.findAll());
 
 		return modelAndView;
 	}
 
 	@GetMapping("/novo")
-	public ModelAndView novo(Cliente cliente) {
+	public ModelAndView novo(Usuario usuario) {
 
 		ModelAndView modelAndView = new ModelAndView("cliente/cadastrousuario1");
 
-		modelAndView.addObject(cliente);
+		modelAndView.addObject(usuario);
 
 		return modelAndView;
 	}
 
 	@PostMapping("/salvar")
-	public ModelAndView salvar(@Valid Cliente cliente, BindingResult result, RedirectAttributes attributes) {
+	public ModelAndView salvar(@Valid Usuario usuario, BindingResult result, RedirectAttributes attributes) {
 
-		Endereco e = cliente.getEndereco();
+		Endereco e = usuario.getEndereco();
 		if (result.hasErrors()) {
 
-			return novo(cliente);
+			return novo(usuario);
 		}
 
 		enderecos.save(e);
 
-		cliente.setEndereco(e);
-		clientes.save(cliente);
+		usuario.setEndereco(e);
+		usuarios.save(usuario);
 		
 		
 		
 
 		attributes.addFlashAttribute("mensagem", "Cliente salvo com sucesso!!");
-		return new ModelAndView("redirect:/cliente");
+		return new ModelAndView("redirect:/usuario");
 
 	}
 }
