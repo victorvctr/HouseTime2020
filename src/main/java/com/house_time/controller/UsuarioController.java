@@ -65,7 +65,7 @@ public class UsuarioController {
 		
 
 		attributes.addFlashAttribute("mensagem", "Cliente salvo com sucesso!!");
-		return new ModelAndView("redirect:/usuario");
+		return new ModelAndView("redirect:/cliente");
 
 	}
 }
