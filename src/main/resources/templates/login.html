@@ -1,12 +1,13 @@
 <!Doctype html>
 <html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
 <head>
     <meta charset="utf-8">
     <title>Área do Cliente</title>
     <link rel="icon" href="imagem/icone.jpg" type="image/x-icon" />
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel='stylesheet' href="css/bootstrap.min.css">
     <link rel='stylesheet' href="css/style.css">
 </head>
 
@@ -74,14 +75,16 @@
     </header>
 
     <section class="d-flex justify-content-center mt-4">
-    <div class="alert alert-danger" role="alert" th:if="${#bools.isTrue(param.error)}">
-                          O e-mail e/ou senha não conferem!!
-                    </div>
+    
         <div class="box d-flex justify-content-center align-items-center w-50 p-4">
-            <form action="loginServlet" method="post" > 
+        	
+            <form name="login" id="login" th:action="@{/login}" method="POST">
+            <div class="alert alert-danger" role="alert" th:if="${#bools.isTrue(param.error)}">
+                  O e-mail e/ou senha não conferem!!
+            </div>
                 <h2>Login</h2>
                 <div class="inputBox">
-                    <input type="text" name="name"><br>
+                    <input type="text" name="username"><br>
                     <label>Login</label>
                 </div>
                 <div class="inputBox">
@@ -91,7 +94,7 @@
                   
                 <section class="d-flex flex-row">
                     <div class="d-flex justify-content-center align-items-center m-1 p-1">
-                        <input class="bg-success" type="submit" name=" " value="Login">
+                        <input class="bg-success" type="submit" id="login_m" value="Login">
                        
                     </div>
              

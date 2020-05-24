@@ -58,6 +58,33 @@ public class ProdutoController {
 
 		attributes.addFlashAttribute("mensagem", "Produto salvo com sucesso!!");
 		return new ModelAndView("redirect:/produto");
+		
 
+	}
+	
+	@GetMapping("/apple")
+	public String apple() {
+		return "produto/apple";
+	}
+	
+	@GetMapping("/samsung")
+	public String sansung() {
+		return "produto/samsung";
+	}
+	@GetMapping("/diesel")
+	public String diesel() {
+		return "produto/diesel";
+	}
+	@GetMapping("/fossil")
+	public String fossil() {
+		return "produto/fossil";
+	}
+	@GetMapping("/montblanc")
+	public String montblanc() {
+		return "produto/montblanc";
+	}
+	@GetMapping("/xiaomi")
+	public String xiaomi() {
+		return "produto/xiaomi";
 	}
 }
