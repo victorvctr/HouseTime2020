@@ -1,6 +1,9 @@
 package com.house_time.models;
 
-import java.util.Date;
+import java.io.Serializable;
+import java.time.LocalDate;
+
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,18 +12,27 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
+
 
 @Entity
 
 
-public class Usuario {
+public class Usuario implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
@@ -37,12 +49,38 @@ public class Usuario {
 	
 	private String celular;
 	
+	@Size(min = 1, message = "Selecione pelo menos um grupo!")
+	@ManyToMany
+	@JoinTable(name = "usuario_grupo", joinColumns = @JoinColumn(name = "codigo_usuario")
+			, inverseJoinColumns = @JoinColumn(name = "codigo_grupo"))
+	private List<Grupo> grupos;
+	
+	
+	public List<Grupo> getGrupos() {
+		return grupos;
+	}
+
+	public void setGrupos(List<Grupo> grupos) {
+		this.grupos = grupos;
+	}
+
+	public Boolean getAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(Boolean ativo) {
+		this.ativo = ativo;
+	}
+
+	private Boolean ativo;
 	
 	@NotNull(message = "Data de nascimento é obrigatória!")
 	@Column(name = "data_nascimento", columnDefinition = "DATE")
 	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+	private LocalDate dataNascimento;
+
 	
-	private Date nascimento;
+	
 	@OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "endereco_id", nullable = false)
     private Endereco endereco;
@@ -111,12 +149,14 @@ public class Usuario {
 		this.cpf = cpf;
 	}
 
-	public Date getNascimento() {
-		return nascimento;
+	
+
+	public LocalDate getDataNascimento() {
+		return dataNascimento;
 	}
 
-	public void setNascimento(Date nascimento) {
-		this.nascimento = nascimento;
+	public void setDataNascimento(LocalDate dataNascimento) {
+		this.dataNascimento = dataNascimento;
 	}
 
 	public Endereco getEndereco() {

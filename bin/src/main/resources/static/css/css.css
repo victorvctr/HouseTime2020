@@ -1,0 +1,227 @@
+p {
+    text-align: justify;
+}
+
+body {
+    background-color: white;
+}
+
+/*INÍCIO MENU PRODUTOS*/
+#menu ul {
+    padding: 0px;
+    margin: 0px;
+    background-color: black;
+    list-style: none;
+}
+
+#menu ul li {
+    display: inline;
+}
+
+#menu ul li a {
+    padding: 0 79.4px;
+    display: inline-block;
+
+    /* visual do link */
+    background-color: black;
+    color: #D3D3D3;
+    text-decoration: none;
+    border-bottom: 3px solid black;
+    font-size: 22px;
+    font-family: 'Passion One', cursive;
+
+}
+
+#menu ul li a:hover {
+    background-color: white;
+    color: black;
+    border-bottom: 3px solid #6CA6CD;
+}
+
+/*FIM MENU PRODUTOS*/
+
+
+.rodape {
+    background: #EDEDED;
+    text-align: center;
+}
+
+/*box de produtos*/
+.box {
+    width: 430px;
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.box h6 {
+    color: dimgrey;
+    padding: 12px;
+    font-size: 18px;
+    font-family: 'Comfortaa', cursive;
+    margin-bottom: -6px;
+}
+
+.box h5 {
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.box h4 {
+    margin-bottom: -1px;
+    color: brown;
+}
+
+.box img {
+    overflow: hidden;
+    max-width: 100%;
+    -moz-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.box img:hover {
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.logotipo {
+    padding: 20px;
+}
+
+/*Fim box produtos*/
+
+
+.titulop h1 {
+    font-family: 'Comfortaa', cursive;
+
+}
+
+.titulop img {
+    float: left;
+    border: 1px solid #E8E8E8;
+    padding: 10px;
+    margin: 0 150px;
+    max-width: 18%;
+}
+
+.titulop h2 {
+    text-align: justify;
+    padding: 55px;
+    font-family: 'Comfortaa', cursive;
+    font-size: 27px;
+
+}
+
+.icone img {
+    width: 2%;
+    border: none;
+    padding: 3px;
+}
+
+.botao-form {
+    text-align: center;
+    padding: 12px;
+}
+
+.container {
+    padding: 15px;
+
+}
+
+.cadastro-usu {
+    font-family: 'Comfortaa', cursive;
+    padding: 10px;
+}
+
+.menu-prod a {
+    font-family: 'Fjalla One', sans-serif;
+    color: white;
+    font-size: 19px;
+}
+
+.menu-prod {
+    background-color: black;
+}
+
+.menu-prod a:hover {
+    color: darkgrey;
+}
+
+/*Modal*/
+.modal-body h2{
+    text-align: center;
+    font-size: 20px;
+}
+
+.modal-body p{
+    text-align: justify;
+    font-size: 18px;
+}
+
+.tarja img{
+    margin-bottom: -5px;
+    margin-top: -5px;
+}
+.descricao h2{
+    font-size: 35px;
+    text-align: center;
+}
+
+a[href="#top"]{
+    padding:10px;
+    position:fixed;
+    top: 90%;
+    right:40px;
+    display:none;
+    font-size: 30px;
+}
+
+.banner img {
+    overflow: hidden;
+    max-width: 100%;
+    -moz-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.banner img:hover{
+    -moz-transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+    transform: scale(0.9);
+}
+.logo-sobre{
+	width:250px;
+	margin-top:30px;
+}
+
+.sobre-text{
+	text-align:center;
+	margin-top:50px;
+}
+
+.sobre-text b{
+	font-size:25px;
+}
+
+.sobre-text p{
+	text-align:center;
+	margin-top:5px;
+	margin-bottom:80px;
+	font-size:30px;
+	font-family:'Open Sans Condensed', sans-serif;
+}
+
+hr{
+	color:#696969;
+	background-color:#696969;
+	width:200px;
+	height:1px;
+}
+}
+}
+}
+}
+}
+
