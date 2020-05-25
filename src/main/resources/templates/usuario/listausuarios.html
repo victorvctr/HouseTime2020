@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+	layout:decorate="~{layout/layout_padrao}">
+<head>
+	<script src="/js/iridiumit.js"></script>
+	<title>Listagem de Usuários</title>
+</head>
+<body>
+
+	<section class="aw-layout-content js-content layout-pagina container" layout:fragment="conteudo">
+			<div class="row">
+				<h1 class="titulo-formulario">
+					<i class="fas fa-list-ol"></i>
+					Listagem de Usuários
+				</h1>
+			</div>
+			
+			<div class="alert alert-success alert-dismissible fade show" role="alert"
+			th:if="${!#strings.isEmpty(mensagem)}">
+			<i class="fa fa-check-circle"></i>
+				<span th:text="${mensagem}">
+					Mensagem sucesso!
+				</span>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    				<span aria-hidden="true">&times;</span>
+  				</button>
+			</div>
+			
+			<div class="form-row">
+				<div class="table-responsive-sm col-sm-12">
+					<table id="tabela-produtos"
+						class="table  table-sm table-striped  table-bordered  table-hover  table-condensed  js-sticky-table">
+						<thead>
+							<tr>
+								<th class="text-center" scope="col">Código</th>
+								<th scope="col">Nome</th>
+								<th scope="col">E-mail</th>
+								<th scope="col">Data Nasc.</th>
+								<th scope="col" class="text-center">Ativo</th>
+								<th scope="col" class="text-center" 
+									sec:authorize="hasRole('ROLE_ADMINISTRADOR') or hasRole('ROLE_CADASTRAR_USUARIO')">
+									Ações
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="usuario: ${usuarios}">
+								<td class="text-center" th:text="${usuario.codigo}">123</td>
+								<td th:text="${usuario.nome}">123</td>
+								<td th:text="${usuario.email}">123</td>
+								<td th:text="${usuario.getDataFormatada()}">123</td>
+								<td class="text-center" th:text="${usuario.ativo}">123</td>
+								<td class="text-center" sec:authorize="hasRole('ROLE_ADMINISTRADOR') or hasRole('ROLE_CADASTRAR_USUARIO')">
+								<form method="POST"	th:action="@{/usuario/excluir/{id}(id=${usuario.codigo})}">
+										<a class="btn btn-primary btn-sm"
+											th:href="@{/usuario/editar/{id}(id=${usuario.codigo})}"
+											th:title="Editar"> <i class="fa fa-pencil-alt"></i>
+										</a>
+										<button th:data-nome="|o usuário ${usuario.nome} com o e-mail ${usuario.email}|" 
+												type="submit" class="btn btn-danger btn-sm" 
+												onclick="return confirmarExclusao(this.getAttribute('data-nome'))" title="Excluir">
+											<span class="far fa-trash-alt"></span>
+										</button>
+									</form>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="7" th:if="${usuarios.empty}">Nenhum usuário
+									cadastrado!!</td>
+							</tr>
+	
+						</tbody>
+					</table>
+				</div>
+			</div>
+	</section>
+	
+</body>
+</html>

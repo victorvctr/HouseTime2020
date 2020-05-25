@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>TIME HOUSE</title>
+    <link rel="icon" href="/imagem/icone.jpeg" type="image/x-icon" />
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="/css/css.css">
+</head>
+	
+	
+	<title>Cadastro de Usuários</title>
+</head>
+<header>
+    <!--menu basico-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a href="/"><img src="/imagem/housetime.png" width="60" height="60" class="d-inline-block"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="alternanavegacao">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+           
+</header>
+<body>
+
+	<section class="aw-layout-content js-content layout-pagina container" layout:fragment="conteudo">
+		
+		<div class="row">
+			<h1 class="titulo-formulario">
+				<i class="far fa-plus-square"></i>
+				Cadastro de Usuário
+			</h1>
+		</div>
+		
+		<th:block th:insert="layout/fragments/MensagemGeral :: geral"></th:block>
+		
+		<form method="POST" th:object="${usuario}"
+			th:action="@{/usuario/salvar}">
+			
+			<th:block th:insert="layout/fragments/MensagemErro :: erros"></th:block>
+
+			<input type="hidden" th:field="*{id}" />
+
+			<div class="form-row">
+				<div class="form-group col-md-4">
+					<label class="campo_obrigatorio" for="descricao">Nome</label>
+					<input type="text" class="form-control" id="descricao" th:field="*{nome}">
+				</div>
+				<div class="form-group col-md-4">
+					<label class="campo_obrigatorio" for="email">E-mail</label>
+					<input type="email" class="form-control" id="email" th:field="*{email}">
+				</div>
+				<div class="form-group col-md-4">
+					<label class="campo_obrigatorio" for="idade">Idade</label>
+					<input type="date" class="form-control" id="idade" th:field="*{dataNascimento}">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-4">
+					<label class="campo_obrigatorio" for="senha">Senha</label>
+					<input type="password" class="form-control" id="senha" th:field="*{senha}">
+				</div>
+				<div class="form-group col-md-4">
+					<label class="campo_obrigatorio" for="confirmarSenha">Confirmar Senha</label>
+					<input type="password" class="form-control" id="confirmarSenha">
+				</div>
+				<div class="form-group col-md-4">
+					<div class="custom-control custom-checkbox">
+				      <input type="checkbox" class="custom-control-input" id="ativo" th:field="*{ativo}">
+				      <label class="custom-control-label" for="ativo">Ativo</label>
+				    </div>
+				</div>
+			</div>
+			<div class="form-row">
+				<th:block th:each="grupo : ${grupos}">
+					<div class="form-group custom-control custom-checkbox custom-control-inline">
+							<input type="checkbox" class="custom-control-input" name="grupo" th:value="${grupo.codigo}"
+								th:field="*{grupos}">
+					      	<label class="custom-control-label" th:for="${#ids.prev('grupos')}" th:text="${grupo.nome}">nome</label>
+				    </div>
+			    </th:block>
+			</div>
+			<button type="submit" class="btn btn-primary" onclick="return validarSenha()">Salvar</button>
+		</form>
+	</section>
+
+</body>
+</html>
