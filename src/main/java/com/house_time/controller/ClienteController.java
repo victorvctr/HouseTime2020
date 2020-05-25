@@ -19,7 +19,7 @@ import com.house_time.repositorios.EnderecoRepositorio;
 
 @Controller
 @RequestMapping("/cliente")
-public class UsuarioController {
+public class ClienteController {
 
 	@Autowired
 	private UsuarioRepositorio usuarios;
