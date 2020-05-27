@@ -89,7 +89,8 @@
 
 <body>
  
-    <form method="POST" th:object="${usuario}" th:action="@{/cliente/salvar}">
+    <form method="POST" th:object="${usuario}" 
+    th:action="@{/cliente/salvar}">
 
 
         <input type="hidden" th:field="*{id}" />

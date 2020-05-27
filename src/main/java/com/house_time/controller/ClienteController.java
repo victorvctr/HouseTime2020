@@ -30,7 +30,7 @@ public class ClienteController {
 	@GetMapping
 	public ModelAndView listar() {
 
-		ModelAndView modelAndView = new ModelAndView("cliente/lista-clientes");
+		ModelAndView modelAndView = new ModelAndView("cliente/sucesso");
 
 		modelAndView.addObject("usuarios", usuarios.findAll());
 
