@@ -13,10 +13,6 @@
     <script type="text/javascript" src="/js/funcoes_cpf.js"></script>
 </head>
 
-	
-	
-	<title>Cadastro de Usuários</title>
-</head>
 <header>
     <!--menu basico-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -24,21 +20,83 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="alternanavegacao">
             <span class="navbar-toggler-icon"></span>
         </button>
-              
+
+        <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active"><a class="nav-link" href="/">Início <span class="sr-only"></span></a></li>
+                <li class="nav-item"><a class="nav-link" href="/contato">Contato</a></li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="/sobre" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sobre Nós</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/sobre">A Empresa</a>
+
+                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#ModalLongoExemplo">
+                            Politicas de Privacidade
+                        </button>
+                    </div> <!-- Modal -->
+                    <div class="modal fade" id="ModalLongoExemplo" tabindex="-1" role="dialog" aria-labelledby="TituloModalLongoExemplo" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="TituloModalLongoExemplo">Termos
+                                        de uso/Políticas de privacidade</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <h2>
+                                        <b>TERMOS DE USO</b>
+                                    </h2>
+                                    <p>Todas as imagens presentes nesse site, é de uso
+                                        exclusivo da empresa House Time. É expressamente proibido
+                                        qualquer tipo de cópia sem prévia comunicação e autorização da
+                                        empresa. As imagens aqui apresentadas, são ilustrativas, ou
+                                        seja, é apenas o mostruário do produto que o cliente irá
+                                        adquirir. Pode ocorrer algumas alterações básicas de cores do
+                                        produto devido configuração de cada monitor, tela ou até mesmo
+                                        da própria ferramenta de acesso. Todos os produtos possuem
+                                        garantias contra defeito de fabricação estipulado pelo
+                                        fornecedor/fabricante, mediante a apresentação da nota fiscal.</p>
+                                    <br> <br>
+
+                                    <h2>
+                                        <b>POLÍTICAS DE PRIVACIDADE</b>
+                                    </h2>
+                                    <p>Nós da House Time, prezamos muito por nossos clientes,
+                                        então garantimos uma compra totalmente segura para quem
+                                        utiliza nosso site. Todos os dados cadastrais de nossos
+                                        clientes são confidenciais. Todas as informações bancárias,
+                                        como por exemplo números de cartões, são criptografadas
+                                        mantendo a segurança dos dados.</p>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+            </ul>
+            
+        </div>
     </nav>
 </header>
 
 <body>
-		
-		<form method="POST" th:object="${usuario}"
-			th:action="@{/usuario/salvar}">
-			
-			
+ 
+    <form method="POST" th:object="${usuario}" 
+    th:action="@{/cliente/salvar}">
 
-			<input type="hidden" th:field="*{id}"/>
-			 <input type="hidden" th:field="*{endereco}" />
 
-			<div class="cadastro-usu">
+        <input type="hidden" th:field="*{id}" />
+        <input type="hidden" th:field="*{endereco}" />
+
+        <div class="cadastro-usu">
             <h1 class="text-center">Cadastro de Usuário</h1>
             <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
         </div>
@@ -54,20 +112,23 @@
                     <b>Sobrenome:</b> <input type="text" name="Sobrenome" class="form-control" id="inputnome" placeholder="Digite seu sobrenome" th:field="*{sobrenome}">
                 </div>
             </div>
-           
-            
-           
-          
+            <br>
+
+            <div class="row">
+                <div class="col-sm">
+                    <b>Data de Nascimento:</b> <input type="date" name="Nascimento" class="form-control" placeholder=" dd/mm/aaaa" th:field="*{dataNascimento}">
+                </div>
                 <div class="col-sm">
                         
                     <b>CPF:</b> <input type="text" id="cpf" value="" name="cpf" maxlength="11" onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control"  placeholder="Digite seu CPF" onblur="verificarCPF(this.value);" th:field="*{cpf}">
                 </div>
-                <br>
+
                 <div class="col-sm">
                     <b>Telefone:</b> <input type="text" name="Celular" maxlength="11" onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control" id="inputcelular" placeholder=" (xx) xxxxx-xxxx" th:field="*{celular}">
                 </div>
-				
-				 <div class="row">
+            </div>
+            <br>
+            <div class="row">
                 <div class="col-sm">
                     <b>CEP:</b> <input type="text" id="cep" value="" name="cep" class="form-control" placeholder="Digite seu CEP" onblur="pesquisacep(this.value);" th:field="*{endereco.cep}" required>
                 </div>
@@ -103,35 +164,30 @@
                 </div>
                
             </div>
-				
-				<div class="row">
-                <div class="col-sm">
-                    <b>Data de Nascimento:</b> <input type="date" name="Nascimento" class="form-control" placeholder=" dd/mm/aaaa" th:field="*{dataNascimento}">
-                </div>
-			</div>
-			
-			<div class="row">
+            <br>
+            <div class="row">
                 <div class="col-sm-4">
                     <b>Email:</b> <input type="email" name="Email" class="form-control" placeholder=" Digite seu email" th:field="*{email}">
                 </div>
                 
-			<div class="form-row">
-				<div class="form-group col-md-4">
-					<label class="campo_obrigatorio" for="senha">Senha</label>
-					<input type="password" class="form-control" id="senha" th:field="*{senha}">
+
+                <div class="col-sm-3">
+                    <b>Senha:</b> <input type="password" name="Senha" class="form-control" placeholder=" Digite sua senha" th:field="*{senha}">
+                </div>
+                
+                <div class="col-sm-3">
+					<b>Confirmar Senha:</b> <input type="password" class="form-control" 
+					placeholder=" Digite sua senha" id="confirmarSenha">
 				</div>
-				<div class="form-group col-md-4">
-					<label class="campo_obrigatorio" for="confirmarSenha">Confirmar Senha</label>
-					<input type="password" class="form-control" id="confirmarSenha">
-				</div>
-				<div class="form-group col-md-4">
-					<div class="custom-control custom-checkbox">
-				      <input type="checkbox" class="custom-control-input" id="ativo" th:field="*{ativo}">
+		
+			<div class="custom-control custom-checkbox">
+				      <br><input type="checkbox" class="custom-control-input"  id="ativo" th:field="*{ativo}">
 				      <label class="custom-control-label" for="ativo">Ativo</label>
 				    </div>
-				</div>
-			</div>
-			</div>
+				    </div>
+				    
+				    
+			<br>
 			<div class="form-row">
 				<th:block th:each="grupo : ${grupos}">
 					<div class="form-group custom-control custom-checkbox custom-control-inline">
@@ -139,15 +195,15 @@
 								th:field="*{grupos}">
 					      	<label class="custom-control-label" th:for="${#ids.prev('grupos')}" th:text="${grupo.nome}">nome</label>
 				    </div>
-				    </div>
-				    </div>
 			    </th:block>
-			
-			<div class="botao-form">
-			<button type="submit" class="btn btn-primary" onclick="return validarSenha()">Salvar</button>
-			 </div>
-		</form>
-
-
+            </div>
+            
+              <div class="botao-form">
+                <button type="submit" class="btn btn-success btn-xl">Salvar</button>
+                <button type="reset" class="btn btn-danger btn-xl">Limpar</button>
+            </div>
+    </form>
 </body>
+
+<!-- Footer -->
 </html>
