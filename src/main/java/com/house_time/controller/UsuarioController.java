@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.house_time.models.Endereco;
 import com.house_time.models.Usuario;
+import com.house_time.repositorios.EnderecoRepositorio;
 import com.house_time.repositorios.GrupoRepositorio;
 import com.house_time.repositorios.UsuarioRepositorio;
 
@@ -23,6 +25,9 @@ public class UsuarioController {
 
 	@Autowired
 	private UsuarioRepositorio usuarios;
+	
+	@Autowired
+	private EnderecoRepositorio enderecos;
 	
 	@Autowired
 	private GrupoRepositorio grupos;
@@ -59,14 +64,19 @@ public class UsuarioController {
 
 			result.rejectValue("email", "usuario.email.existente");
 		}
+	
+		Endereco e = usuario.getEndereco();
+		
 
-		if (result.hasErrors()) {
-			return novo(usuario);
-		}
+		
+		 if (result.hasErrors()) { return novo(usuario); }
+		 
 		
 		String senha = passwordEncoder.encode(usuario.getSenha());
 		usuario.setSenha(senha);
-		
+		enderecos.save(e);
+
+		usuario.setEndereco(e);
 		usuarios.save(usuario);
 
 		attributes.addFlashAttribute("mensagem", "Usuário salvo com sucesso!!");
@@ -81,10 +91,13 @@ public class UsuarioController {
 		return novo(usuarios.getOne(id));
 	}
 
+	
+	
 	@PostMapping(value = "excluir/{id}")
 	public String excluir(@PathVariable Long id, RedirectAttributes attributes) {
 
 		usuarios.deleteById(id);
+		
 
 		attributes.addFlashAttribute("mensagem", "Usuario excluido com sucesso!!");
 
