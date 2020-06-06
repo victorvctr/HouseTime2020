@@ -25,13 +25,13 @@ public class UsuarioController {
 
 	@Autowired
 	private UsuarioRepositorio usuarios;
-	
+
 	@Autowired
 	private EnderecoRepositorio enderecos;
-	
+
 	@Autowired
 	private GrupoRepositorio grupos;
-	
+
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
@@ -49,7 +49,7 @@ public class UsuarioController {
 	public ModelAndView novo(Usuario usuario) {
 
 		ModelAndView modelAndView = new ModelAndView("usuario/cadusuarios");
-		
+
 		modelAndView.addObject("grupos", grupos.findAll());
 
 		modelAndView.addObject(usuario);
@@ -64,14 +64,13 @@ public class UsuarioController {
 
 			result.rejectValue("email", "usuario.email.existente");
 		}
-	
-		Endereco e = usuario.getEndereco();
-		
 
-		
-		 if (result.hasErrors()) { return novo(usuario); }
-		 
-		
+		Endereco e = usuario.getEndereco();
+
+		if (result.hasErrors()) {
+			return novo(usuario);
+		}
+
 		String senha = passwordEncoder.encode(usuario.getSenha());
 		usuario.setSenha(senha);
 		enderecos.save(e);
@@ -91,13 +90,10 @@ public class UsuarioController {
 		return novo(usuarios.getOne(id));
 	}
 
-	
-	
 	@PostMapping(value = "excluir/{id}")
 	public String excluir(@PathVariable Long id, RedirectAttributes attributes) {
 
 		usuarios.deleteById(id);
-		
 
 		attributes.addFlashAttribute("mensagem", "Usuario excluido com sucesso!!");
 

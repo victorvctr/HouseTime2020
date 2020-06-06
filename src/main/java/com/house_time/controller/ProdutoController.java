@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -43,7 +44,25 @@ public class ProdutoController {
 
 		return modelAndView;
 	}
+	
+	@GetMapping("editar/{id}")
+	public ModelAndView editar(@PathVariable Long id) {
 
+		return novo(produtos.getOne(id));
+	}
+	
+	@PostMapping(value = "excluir/{id}")
+	public String excluir(@PathVariable Long id, RedirectAttributes attributes) {
+
+		produtos.deleteById(id);
+
+		attributes.addFlashAttribute("mensagem", "produto excluido com sucesso!!");
+
+		return "redirect:/produto";
+	}
+	
+	
+	
 	@PostMapping("/salvar")
 	public ModelAndView Cadastrar(@Valid Produto produto, BindingResult result, RedirectAttributes attributes) {
 
@@ -61,6 +80,8 @@ public class ProdutoController {
 		
 
 	}
+	
+
 	
 	@GetMapping("/apple")
 	public String apple() {
