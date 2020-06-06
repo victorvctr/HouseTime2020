@@ -2,108 +2,91 @@
 <html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="utf-8">
-<title>TIME HOUSE</title>
-<link rel="icon" href="/imagem/icone.jpeg" type="image/x-icon" />
+    <meta charset="utf-8">
+    <title>TIME HOUSE</title>
+    <link rel="icon" href="/imagem/icone.jpeg" type="image/x-icon" />
 
-<link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 
-<link rel="stylesheet" href="/css/css.css">
-
-
+    <link rel="stylesheet" href="/css/css.css">
+    <script type="text/javascript" src="/js/cep.js"></script>
+    <script type="text/javascript" src="/js/funcoes_cpf.js"></script>
 </head>
-<body>
-<div class="container">
-	<header>
-	<!--menu basico-->
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a href="/"><img src="/imagem/housetime.png" width="60"
-			height="60" class="d-inline-block"></a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#conteudoNavbarSuportado"
-			aria-controls="conteudoNavbarSuportado" aria-expanded="false"
-			aria-label="alternanavegacao">
-			<span class="navbar-toggler-icon"></span>
-		</button>
 
-		<div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link"
-					href="/">Início <span class="sr-only"></span></a></li>
-				<li class="nav-item"><a class="nav-link" href="contato.jsp">Contato</a></li>
+<header>
+    <!--menu basico-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a href="/"><img src="/imagem/housetime.png" width="60" height="60" class="d-inline-block"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="alternanavegacao">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-				<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false">Sobre Nós</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="sobre">A Empresa</a>
+        <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active"><a class="nav-link" href="/">Início <span class="sr-only"></span></a></li>
+                <li class="nav-item"><a class="nav-link" href="/contato">Contato</a></li>
 
-						<button type="button" class="btn btn-light" data-toggle="modal"
-							data-target="#ModalLongoExemplo">Politicas de
-							Privacidade</button>
-					</div> <!-- Modal -->
-					<div class="modal fade" id="ModalLongoExemplo" tabindex="-1"
-						role="dialog" aria-labelledby="TituloModalLongoExemplo"
-						aria-hidden="true">
-						<div class="modal-dialog" role="document">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h5 class="modal-title" id="TituloModalLongoExemplo">Termos
-										de uso/Políticas de privacidade</h5>
-									<button type="button" class="close" data-dismiss="modal"
-										aria-label="Fechar">
-										<span aria-hidden="true">&times;</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									<h2>
-										<b>TERMOS DE USO</b>
-									</h2>
-									<p>Todas as imagens presentes nesse site, é de uso
-										exclusivo da empresa House Time. É expressamente proibido
-										qualquer tipo de cópia sem prévia comunicação e autorização da
-										empresa. As imagens aqui apresentadas, são ilustrativas, ou
-										seja, é apenas o mostruário do produto que o cliente irá
-										adquirir. Pode ocorrer algumas alterações básicas de cores do
-										produto devido configuração de cada monitor, tela ou até mesmo
-										da própria ferramenta de acesso. Todos os produtos possuem
-										garantias contra defeito de fabricação estipulado pelo
-										fornecedor/fabricante, mediante a apresentação da nota fiscal.</p>
-									<br>
-									<br>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="/sobre" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sobre Nós</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/sobre">A Empresa</a>
 
-									<h2>
-										<b>POLÍTICAS DE PRIVACIDADE</b>
-									</h2>
-									<p>Nós da House Time, prezamos muito por nossos clientes,
-										então garantimos uma compra totalmente segura para quem
-										utiliza nosso site. Todos os dados cadastrais de nossos
-										clientes são confidenciais. Todas as informações bancárias,
-										como por exemplo números de cartões, são criptografadas
-										mantendo a segurança dos dados.</p>
+                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#ModalLongoExemplo">
+                            Politicas de Privacidade
+                        </button>
+                    </div> <!-- Modal -->
+                    <div class="modal fade" id="ModalLongoExemplo" tabindex="-1" role="dialog" aria-labelledby="TituloModalLongoExemplo" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="TituloModalLongoExemplo">Termos
+                                        de uso/Políticas de privacidade</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <h2>
+                                        <b>TERMOS DE USO</b>
+                                    </h2>
+                                    <p>Todas as imagens presentes nesse site, é de uso
+                                        exclusivo da empresa House Time. É expressamente proibido
+                                        qualquer tipo de cópia sem prévia comunicação e autorização da
+                                        empresa. As imagens aqui apresentadas, são ilustrativas, ou
+                                        seja, é apenas o mostruário do produto que o cliente irá
+                                        adquirir. Pode ocorrer algumas alterações básicas de cores do
+                                        produto devido configuração de cada monitor, tela ou até mesmo
+                                        da própria ferramenta de acesso. Todos os produtos possuem
+                                        garantias contra defeito de fabricação estipulado pelo
+                                        fornecedor/fabricante, mediante a apresentação da nota fiscal.</p>
+                                    <br> <br>
 
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-										data-dismiss="modal">Fechar</button>
-								</div>
-							</div>
-						</div>
-					</div></li>
+                                    <h2>
+                                        <b>POLÍTICAS DE PRIVACIDADE</b>
+                                    </h2>
+                                    <p>Nós da House Time, prezamos muito por nossos clientes,
+                                        então garantimos uma compra totalmente segura para quem
+                                        utiliza nosso site. Todos os dados cadastrais de nossos
+                                        clientes são confidenciais. Todas as informações bancárias,
+                                        como por exemplo números de cartões, são criptografadas
+                                        mantendo a segurança dos dados.</p>
 
-				<li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
-			</ul>
-			<form class="form-inline my-2 my-lg-0">
-				<input class="form-control mr-sm-2" type="search"
-					placeholder="Pesquisar" arial-label="Pesquisar">
-				<button class="btn my-2 my-sm-0" type="submit"
-					style="background-color: lightgrey;">Pesquisar</button>
-			</form>
-		</div>
-	</nav>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+            </ul>
+            
+        </div>
+    </nav>
 </header>
-
+<div class="container">
 	<section class="aw-layout-content js-content layout-pagina">
 			<div class="row">
 				<h1 class="titulo-formulario">
@@ -136,10 +119,12 @@
 								<th scope="col">Nascimento</th>
 								<th scope="col">Celular</th>
 								<th scope="col">Email</th>
-								
-								
-								
-								<th scope="col" class="text-center">Ações</th>
+								<th scope="col" class="text-center">Ativo</th>
+					
+							<th scope="col" class="text-center" 
+									sec:authorize="hasRole('ROLE_ADMINISTRADOR') or hasRole('ROLE_CADASTRAR_USUARIO')">
+									Ações
+								</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -151,8 +136,9 @@
 								<td th:text="${usuario.dataNascimento}">123</td>
 								<td th:text="${usuario.celular}">123</td>
 								<td th:text="${usuario.email}">123</td>
+								<td class="text-center" th:text="${usuario.ativo}">123</td>
+								<td class="text-center" sec:authorize="hasRole('ROLE_ADMINISTRADOR') or hasRole('ROLE_CADASTRAR_USUARIO')">
 								
-								<td class="text-center">
 								<form method="POST"	th:action="@{/usuario/excluir/{id}(id=${usuario.id})}">
 										<a class="btn btn-primary btn-sm"
 											th:href="@{/usuario/editar/{id}(id=${usuario.id})}"

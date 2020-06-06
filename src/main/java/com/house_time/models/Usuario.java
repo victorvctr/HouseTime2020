@@ -40,7 +40,7 @@ public class Usuario implements Serializable{
 	
 	private String sobrenome;
 	@NotNull(message = "cpf não pode ser nulo e nem vazio")
-	
+	@NotBlank (message = "cpf não pode ser nulo e nem vazio")
     private String cpf;
 	@NotBlank (message = "celular não pode ser nulo e nem vazio")
 	

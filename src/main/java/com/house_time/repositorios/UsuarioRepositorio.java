@@ -15,9 +15,14 @@ public interface UsuarioRepositorio extends JpaRepository<Usuario, Long> {
 	boolean existsByEmail(String email);
 	Usuario findByEmail(String email);
 	
+	
+	
+
+	
 	Usuario findByDataNascimento(LocalDate data);
 	
 	Usuario findByEmailAndAtivoTrue(String email);
+	Usuario findByCpfAndAtivoTrue(String cpf);
 	
 	@Query("select distinct p.nome from Usuario u inner join u.grupos g inner join g.permissoes p where u = ?1")
 	List<String> listaPermissoes(Usuario u);

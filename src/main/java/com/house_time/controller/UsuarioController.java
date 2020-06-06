@@ -64,6 +64,8 @@ public class UsuarioController {
 
 			result.rejectValue("email", "usuario.email.existente");
 		}
+		
+		
 
 		Endereco e = usuario.getEndereco();
 
