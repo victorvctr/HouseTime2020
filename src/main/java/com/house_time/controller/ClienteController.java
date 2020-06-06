@@ -50,6 +50,18 @@ public class ClienteController {
 	@PostMapping("/salvar")
 	public ModelAndView salvar(@Valid Usuario usuario, BindingResult result, RedirectAttributes attributes) {
 
+		
+		if (usuarios.existsByEmail(usuario.getEmail()) && !usuarios.existsById(usuario.getId())) {
+
+			result.rejectValue("email", "usuario.email.existente");
+		}
+		if (usuarios.existsByCpf(usuario.getCpf()) && !usuarios.existsById(usuario.getId())) {
+
+			result.rejectValue("cpf", "usuario.cpf.existente");
+		}
+		
+		
+		
 		Endereco e = usuario.getEndereco();
 		if (result.hasErrors()) {
 
