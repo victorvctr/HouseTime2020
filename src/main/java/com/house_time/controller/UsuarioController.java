@@ -64,6 +64,10 @@ public class UsuarioController {
 
 			result.rejectValue("email", "usuario.email.existente");
 		}
+		if (usuarios.existsByCpf(usuario.getCpf()) && !usuarios.existsById(usuario.getId())) {
+
+			result.rejectValue("cpf", "usuario.cpf.existente");
+		}
 		
 		
 
