@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class SecurityController {
 	
+	
 	@GetMapping("/")
 	public String inicio() {
 		return "index";
@@ -20,5 +21,6 @@ public class SecurityController {
 		}
 		return "login";
 	}
+	
 
 }

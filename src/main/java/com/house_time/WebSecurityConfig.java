@@ -26,7 +26,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-			.antMatchers("/index").hasAnyRole("ADMINISTRADOR")
+			.antMatchers("/").permitAll()
+			.antMatchers("/sobre").permitAll()
+			.antMatchers("/contato").permitAll()
+			.antMatchers("/cliente/novo").permitAll()
+			.antMatchers("/cliente/salvar").permitAll()
+			.antMatchers("/index").permitAll()
 			.antMatchers("/produto").hasAnyRole("ADMINISTRADOR", "VISUALIZAR_PRODUTO")
 			.antMatchers("/produto/**").hasAnyRole("ADMINISTRADOR", "CADASTRAR_PRODUTO")
 			.antMatchers("/usuario").hasAnyRole("ADMINISTRADOR", "VISUALIZAR_USUARIO")
@@ -48,7 +53,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		web.ignoring().antMatchers("/bootstrap-4.1.3/**")
 				.antMatchers("/imagem/**")
 				.antMatchers("/css/**")
-				.antMatchers("/js/**");
+				.antMatchers("/js/**")
+				.antMatchers("/webjars/**");
 	}
 
 	@Bean

@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Produto {
@@ -11,15 +13,18 @@ public class Produto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long idProd;
-
+	@NotBlank (message = "{fabicante.not.blank}")
 	private String fabricante;
+	@NotBlank (message = "{sistema.not.blank}")
 	private String sistema;
+	@NotBlank (message = "{punseira.not.blank}")
 	private String pulseira;
 	private String dimensao;
     private String cor;
 	private String peso;
 	private String modelo;
 	private String valor;
+	@Min(value = 1, message = "{quantidade.not.null}")
 	private String quantidade;
 	private String imagem;
 	
