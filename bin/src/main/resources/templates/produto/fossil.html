@@ -1,26 +1,27 @@
-<!DOCTYPE html>
+<!Doctype html>
 <html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="utf-8">
-    <title>TIME HOUSE</title>
-    <link rel="icon" href="imagem/relogio.png" type="image/x-icon" />
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <link href='css/css.css' rel='stylesheet'>
-</head>
+    <head>
+        <meta charset="utf-8">
+    <title>Fossil</title>
+    <link rel="icon" href="/imagem/icone.jpeg" type="image/x-icon" />
+
+    <link rel='stylesheet' href="/css/bootstrap.min.css">
+    <link rel='stylesheet' href="/css/css.css">
+    </head>
 
 <header>
     <!--menu basico-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a href="/index"><img src="imagem/housetime.png" width="60" height="60" class="d-inline-block"></a>
+        <a href="/index"><img src="/imagem/housetime.png" width="60" height="60" class="d-inline-block"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="alternanavegacao">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-
-        <div id="conteudoNavbarSuportado" class="collapse navbar-collapse">
+        <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="/index">Início <span class="sr-only"></span></a>
@@ -36,8 +37,8 @@
                         <button type="button" class="btn btn-light" data-toggle="modal" data-target="#ModalLongoExemplo">
                             Politicas de Privacidade
                         </button>
-
                     </div>
+
 
                     <!-- Modal -->
                     <div class="modal fade" id="ModalLongoExemplo" tabindex="-1" role="dialog" aria-labelledby="TituloModalLongoExemplo" aria-hidden="true">
@@ -68,31 +69,93 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/login">Login</a></li>
+                    <a class="nav-link" href="login.html">Login</a></li>
             </ul>
-
-
-          
+            
         </div>
     </nav>
 </header>
 
 <body>
-   <center><img class="logo-sobre" src="/imagem/housetime.png"></center>
- 
-    <h6 class="sobre-text">
-        <b>MISSÃO</b>
-<hr>
-        <p>A Relojoaria House Time existe única e exclusivamente para atender seus clientes, oferecendo o que há de melhor em produtos que agregam elegância, beleza e estilo, praticando preços justos e buscando sempre a excelência no atendimento. Buscamos o autoaperfeiçoamento para nos mantermos sempre competitivos e podermos oferecer o que nossos clientes merecem, o melhor.<br>
+    <div class='logotipo'>
+        <center><img src="/imagem/logofossil.png" height='150' width='290' alt="Fossil" /></center>
+    </div>
+    <hr>
+    <div class="container" style="padding-left:130px;">
+            <div class="row">
+                <div class="col-sm">
+                    <img src="/imagem/tarja1.png">
+                </div>
+                <div class="col">
+                <img src="/imagem/tarja3.png">
+                </div>
+                <div class="col">
+                <img src="/imagem/tarja5.png">
+                </div>
+            </div>
+        </div>
+    <hr>
 
-        <center><b>VALORES</b></center>
-<hr>
-        <p>A empresa tem como prioridade a satisfação e bem estar dos clientes e de seus colaboradores. Acreditamos no valor do trabalho proveniente da ética profissional, moldando através dela, nossas atitudes.</p><br>
+    <div class='box'>
+        <img src='/imagem/fossil1.jpg' height='200' width="120" alt='Fossil Generation 4 Grafite' />
+        <span>
+            <h6>FOSSIL GENERATION 4 GRAFITE</h6>
+            <h4>R$00,00</h4>
+            <h5>á vista</h5>
+            <h5>(Ou em 12x s/ juros.)</h5>
+        </span>
+    </div>
 
-        <b>VISÃO</b>
-<hr>
-        <p>A Relojoaria House Time busca ser referência nacional em qualidade de produtos e serviços.</p><link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap" rel="stylesheet"></h6>
+    <div class='box'>
+        <img src='/imagem/fossil2.jpg' height='200' width='120' alt='Fossil Masculino Q Commuter Prata ' />
+        <span>
+            <h6>FOSSIL MASC. Q COMMUTER PRATA </h6>
+            <h4>R$00,00</h4>
+            <h5>á vista</h5>
+            <h5>(Ou em 12x s/ juros.)</h5>
+        </span>
+    </div>
 
+    <div class='box'>
+        <img src='/imagem/fossil3.jpg' height='200' width='120' alt=" Fossil Generation 4 Prata" />
+        <span>
+            <h6>FOSSIL GENERATION 4 PRATA</h6>
+            <h4>R$00,00</h4>
+            <h5>á vista</h5>
+            <h5>(Ou em 12x s/ juros.)</h5>
+        </span>
+    </div>
+
+    <div class='box'>
+        <img src='/imagem/fossil4.jpg' height='200' width='120' alt="Fossil Masculino Q Commuter Preto" />
+        <span>
+            <h6>FOSSIL MASC. Q COMMUTER PRETO</h6>
+            <h4>R$00,00</h4>
+            <h5>á vista</h5>
+            <h5>(Ou em 12x s/ juros.)</h5>
+        </span>
+    </div>
+
+    <div class='box'>
+        <img src='/imagem/fossil5.jpg' height='220' width='120' alt="Fossil Generation 4 Feminino Rosé" />
+        <span>
+            <h6>FOSSIL GENERATION 4 FEM. ROSÉ</h6>
+            <h4>R$00,00</h4>
+            <h5>á vista</h5>
+            <h5>(Ou em 12x s/ juros.)</h5>
+        </span>
+    </div>
+
+    <div class='box'>
+        <img src='/imagem/fossil6.jpg' height='200' width='120' alt="Fossil Generation 4 Prata" />
+        <span>
+            <h6>FOSSIL GENERATION 4 PRATA</h6>
+            <h4>R$00,00</h4>
+            <h5>á vista</h5>
+            <h5>(Ou em 12x s/ juros.)</h5>
+        </span>
+    </div>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -114,11 +177,13 @@
                 <!-- Content -->
                 <h6 class="text-uppercase font-weight-bold">House Time</h6>
                 <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                <p>Somos uma empresa especializada em SmartWatch, estamos prontos para antedê-los!
+                <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
+                    consectetur
+                    adipisicing elit.
                 </p>
-                <img src="imagem/housetime.png" width="100px"><br><br>
+                <img src="/imagem/housetime.png" width="100px"><br><br>
                 <h6>Trabalhamos com os cartões:</h6>
-                <img src="imagem/cartao.png" width="300px">
+                <img src="/imagem/cartao.png" width="300px">
             </div>
             <!-- Grid column -->
 
@@ -129,22 +194,22 @@
                 <h6 class="text-uppercase font-weight-bold">Produtos</h6>
                 <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                 <p>
-                    <a class="dark-grey-text" href="apple.html">Apple</a>
+                    <a class="dark-grey-text" href="/produto/apple">Apple</a>
                 </p>
                 <p>
-                    <a class="dark-grey-text" href="samsung.html">Samsung</a>
+                    <a class="dark-grey-text" href="/produto/samsung">Samsung</a>
                 </p>
                 <p>
-                    <a class="dark-grey-text" href="diesel.html">Diesel</a>
+                    <a class="dark-grey-text" href="/produto/diesel">Diesel</a>
                 </p>
                 <p>
-                    <a class="dark-grey-text" href="fossil.html">Fossil</a>
+                    <a class="dark-grey-text" href="/produto/fossil">Fossil</a>
                 </p>
                 <p>
-                    <a class="dark-grey-text" href="montblanc.html">Mont Blanc</a>
+                    <a class="dark-grey-text" href="/produto/montblanc">Mont Blanc</a>
                 </p>
                 <p>
-                    <a class="dark-grey-text" href="xiaomi.html">Xiaomi</a>
+                    <a class="dark-grey-text" href="/produto/xiaomi">Xiaomi</a>
                 </p>
 
             </div>
@@ -157,10 +222,10 @@
                 <h6 class="text-uppercase font-weight-bold">Menu</h6>
                 <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                 <p>
-                    <a class="dark-grey-text" href="/">Início</a>
+                    <a class="dark-grey-text" href="/index">Início</a>
                 </p>
                 <p>
-                    <a class="dark-grey-text" href="contato.html">Contato</a>
+                    <a class="dark-grey-text" href="/contato">Contato</a>
                 </p>
                 <p>
                     <a class="dark-grey-text" href="/sobre">A Empresa</a>
@@ -169,11 +234,11 @@
                     <a class="dark-grey-text" href="#" onclick="$('#ModalLongoExemplo').modal('show')">Termos de Uso</a>
                 </p>
                 <p>
-                    <a class="dark-grey-text" href="/login">Login</a>
+                    <a class="dark-grey-text" href="login.html">Login</a>
                 </p>
 
             </div>
-
+            <!-- Grid column -->
 
             <!-- Grid column -->
             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
@@ -193,6 +258,8 @@
     <div class="footer-copyright text-center text-black-50 py-3 " style="background-color:#D3D3D3;">© 2019 Copyright:
         <a class="dark-grey-text" href="https://mdbootstrap.com/education/bootstrap/">7ForDeveloper</a>
     </div>
+
+
 </footer>
 
 </html>

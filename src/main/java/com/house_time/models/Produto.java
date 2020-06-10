@@ -24,8 +24,9 @@ public class Produto {
 	private String peso;
 	private String modelo;
 	private String valor;
-	@Min(value = 1, message = "{quantidade.not.null}")
-	private String quantidade;
+	
+	@Min(value = 1, message = "{estoque.not.null}")
+	private int estoque;
 	private String imagem;
 	
 
@@ -102,12 +103,14 @@ public class Produto {
 		this.valor = valor;
 	}
 
-	public String getQuantidade() {
-		return quantidade;
+	
+
+	public int getEstoque() {
+		return estoque;
 	}
 
-	public void setQuantidade(String quantidade) {
-		this.quantidade = quantidade;
+	public void setEstoque(int estoque) {
+		this.estoque = estoque;
 	}
 
 	public String getImagem() {

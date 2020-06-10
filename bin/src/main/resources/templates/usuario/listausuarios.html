@@ -2,18 +2,18 @@
 <html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="utf-8">
-<title>TIME HOUSE</title>
-<link rel="icon" href="/imagem/icone.jpeg" type="image/x-icon" />
+    <meta charset="utf-8">
+    <title>TIME HOUSE</title>
+    <link rel="icon" href="/imagem/icone.jpeg" type="image/x-icon" />
 
-<link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 
-<link rel="stylesheet" href="/css/css.css">
-
-
+    <link rel="stylesheet" href="/css/css.css">
+    <script type="text/javascript" src="/js/cep.js"></script>
+    <script type="text/javascript" src="/js/funcoes_cpf.js"></script>
 </head>
 
-	<header>
+<header>
     <!--menu basico-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a href="/"><img src="/imagem/housetime.png" width="60" height="60" class="d-inline-block"></a>
@@ -86,13 +86,12 @@
         </div>
     </nav>
 </header>
-<body>
 <div class="container">
 	<section class="aw-layout-content js-content layout-pagina">
 			<div class="row">
 				<h1 class="titulo-formulario">
 					<i class="fas fa-list-ol"></i>
-					Listagem de Produtos
+					Listagem de Clientes
 				</h1>
 			</div>
 			
@@ -114,44 +113,39 @@
 						<thead>
 							<tr>
 								<th class="text-center" scope="col">Código</th>
-								<th scope="col">Fabricante</th>
-								<th scope="col">Sistema</th>
-								<th scope="col">Pulseira</th>
-								<th scope="col">Dimensão</th>
-								<th scope="col">Cor</th>
-								<th scope="col">Peso</th>
-								<th scope="col">Modelo</th>
-								<th scope="col">Valor</th>
-								<th scope="col">Quantidade</th>
-								<th scope="col">Imagem</th>
-								
-								
-								
-								<th scope="col" class="text-center">Ações</th>
+								<th scope="col">Nome</th>
+								<th scope="col">Sobrenome</th>
+								<th scope="col">Cpf</th>
+								<th scope="col">Nascimento</th>
+								<th scope="col">Celular</th>
+								<th scope="col">Email</th>
+								<th scope="col" class="text-center">Ativo</th>
+					
+							<th scope="col" class="text-center" 
+									sec:authorize="hasRole('ROLE_ADMINISTRADOR') or hasRole('ROLE_CADASTRAR_USUARIO')">
+									Ações
+								</th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr th:each="produto: ${produtos}">
-								<td class="text-center" th:text="${produto.idProd}">123</td>
-								<td th:text="${produto.fabricante}">123</td>
-								<td th:text="${produto.sistema}">123</td>
-								<td th:text="${produto.pulseira}">123</td>
-								<td th:text="${produto.dimensao}">123</td>
-								<td th:text="${produto.cor}">123</td>
-								<td th:text="${produto.peso}">123</td>
+							<tr th:each="usuario: ${usuarios}">
+								<td class="text-center" th:text="${usuario.id}">123</td>
+								<td th:text="${usuario.nome}">123</td>
+								<td th:text="${usuario.sobrenome}">123</td>
+								<td th:text="${usuario.cpf}">123</td>
+								<td th:text="${usuario.dataNascimento}">123</td>
+								<td th:text="${usuario.celular}">123</td>
+								<td th:text="${usuario.email}">123</td>
+								<td class="text-center" th:text="${usuario.ativo}">123</td>
+								<td class="text-center" sec:authorize="hasRole('ROLE_ADMINISTRADOR') or hasRole('ROLE_CADASTRAR_USUARIO')">
 								
-								<td th:text="${produto.modelo}">123</td>
-								<td th:text="${produto.valor}">123</td>
-								<td th:text="${produto.quantidade}">123</td>
-								<td th:text="${produto.imagem}">123</td>
-								
-								<td class="text-center">
-								<form method="POST"	th:action="@{/produto/excluir/{idProd}(idProd=${produto.idProd})}">
+								<form method="POST"	th:action="@{/usuario/excluir/{id}(id=${usuario.id})}">
 										<a class="btn btn-primary btn-sm"
-											th:href="@{/produto/editar/{idProd}(idProd=${produto.idProd})}"
+											th:href="@{/usuario/editar/{id}(id=${usuario.id})}"
 											th:title="Editar"> <i class="fa fa-pencil-alt"></i>
 										</a>
-										<button th:data-nome="|o produto ${produto.idProd}|" type="submit" class="btn btn-danger btn-sm" 
+										<button th:data-nome="|o usuário ${usuario.nome} com o e-mail ${usuario.email}|" 
+												type="submit" class="btn btn-danger btn-sm" 
 												onclick="return confirmarExclusao(this.getAttribute('data-nome'))" title="Excluir">
 											<span class="far fa-trash-alt"></span>
 										</button>
@@ -159,7 +153,7 @@
 								</td>
 							</tr>
 							<tr>
-								<td colspan="5" th:if="${produtos.empty}">Nenhum cliente
+								<td colspan="5" th:if="${usuarios.empty}">Nenhum cliente
 									cadastrado!!</td>
 							</tr>
 	

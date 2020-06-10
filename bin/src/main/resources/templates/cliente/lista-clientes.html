@@ -148,18 +148,19 @@
 								<td th:text="${usuario.nome}">123</td>
 								<td th:text="${usuario.sobrenome}">123</td>
 								<td th:text="${usuario.cpf}">123</td>
-								<td th:text="${usuario.nascimento}">123</td>
+								<td th:text="${usuario.dataNascimento}">123</td>
 								<td th:text="${usuario.celular}">123</td>
 								<td th:text="${usuario.email}">123</td>
 								
 								<td class="text-center">
-								<form method="POST"	th:onsubmit="'return confirm(\'Posso remover o produto da base de dados?\');'"
-										>
+								<form method="POST"	th:action="@{/usuario/excluir/{id}(id=${usuario.id})}">
 										<a class="btn btn-primary btn-sm"
-											
+											th:href="@{/usuario/editar/{id}(id=${usuario.id})}"
 											th:title="Editar"> <i class="fa fa-pencil-alt"></i>
 										</a>
-										<button type="submit" class="btn btn-danger btn-sm" title="Excluir">
+										<button th:data-nome="|o usuário ${usuario.nome} com o e-mail ${usuario.email}|" 
+												type="submit" class="btn btn-danger btn-sm" 
+												onclick="return confirmarExclusao(this.getAttribute('data-nome'))" title="Excluir">
 											<span class="far fa-trash-alt"></span>
 										</button>
 									</form>

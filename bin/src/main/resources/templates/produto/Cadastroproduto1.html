@@ -73,6 +73,23 @@
 
 <body>
     <form method="POST" th:object="${produto}" th:action="@{/produto/salvar}">
+    
+    
+    <div class="alert alert-danger alert-dismissible" role="alert"
+        th:if="${#fields.hasAnyErrors()}">
+        <button type="button" class="close" data-dismiss="alert"
+            aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+
+ 
+
+        <div th:each="erro: ${#fields.detailedErrors()}">
+            <i class="fa fa-exclamation-circle"></i> <span
+                th:text="${erro.message}">Mensagem erro.</span>
+        </div>
+    </div>
+    
         <input type="hidden" th:field="*{idProd}" />
         <div class="cadastro-usu">
             <h1 class="text-center">Cadastro de Produtos</h1>
@@ -81,10 +98,7 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-sm-2">
-                    <b>Cód. Produto:</b> 
-                    <input type="text" name="Codigo" class="form-control" id="inputcodigo" placeholder="Digite o código do produto">
-                </div>
+                
                 <div class="col-sm">
                     <b>Fornecedor:</b> 
                     <input type="text" name="Fornecedor" class="form-control" id="inputfornecedor" placeholder="Digite o fornecedor">
@@ -181,9 +195,9 @@
                     <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                     <p>Somos uma empresa especializada em SmartWatch, estamos prontos para antedê-los!
                     </p>
-                    <img src="imagem/housetime.png" width="100px"><br><br>
+                    <img src="/imagem/housetime.png" width="100px"><br><br>
                     <h6>Trabalhamos com os cartões:</h6>
-                    <img src="imagem/cartao.png" width="300px">
+                    <img src="/imagem/cartao.png" width="300px">
                 </div>
                 <!-- Grid column -->
 
