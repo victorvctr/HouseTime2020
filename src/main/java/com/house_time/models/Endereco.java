@@ -19,7 +19,7 @@ public class Endereco {
 	private int n;
 	private String cidade;
 	private String estado;
-	private String pais;
+	/* private String pais; */
 	private String bairro;
 	public String getRua() {
 		return rua;
@@ -45,12 +45,11 @@ public class Endereco {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-	public String getPais() {
-		return pais;
-	}
-	public void setPais(String pais) {
-		this.pais = pais;
-	}
+
+	/*
+	 * public String getPais() { return pais; } public void setPais(String pais) {
+	 * this.pais = pais; }
+	 */
 	public String getBairro() {
 		return bairro;
 	}
