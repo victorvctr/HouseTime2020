@@ -35,7 +35,7 @@ function verificarCPF(c){
         v = true;
         return false;
     }
-    if (!v) {
-        alert(c + "nCPF Válido")
-    }
+    /*if (!v) {
+        alert(c + "CPF Válido")
+    }*/
 }

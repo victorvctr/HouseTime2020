@@ -9,9 +9,11 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="/css/css.css">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
 </head>
 
 <header>
+
     <!--menu basico-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a href="/"><img src="/imagem/housetime.png" width="60" height="60" class="d-inline-block"></a>
@@ -72,6 +74,7 @@
 </header>
 
 <body>
+<h1 style="font-family:  Comfortaa script=latin rev=1; font-weight: 400; font-style: normal;"> Cadastro de produto </h1>
     <form method="POST" th:object="${produto}" th:action="@{/produto/salvar}">
     
     
@@ -91,10 +94,7 @@
     </div>
     
         <input type="hidden" th:field="*{idProd}" />
-        <div class="cadastro-usu">
-            <h1 class="text-center">Cadastro de Produtos</h1>
-            <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
-        </div>
+       
 
         <div class="container">
             <div class="row">
@@ -151,26 +151,30 @@
             </div>
             <br>
             
-            <div class="row">
-                <div class="col-sm-5">
-                    <b>Imagem do Produto:</b>
-                    <div class="card" name="Imagem">
-                        <div class="card-body">
-                            <h6 class="card-title text-warning">Upload de imagem</h6>
-                            <hr class="prod">
-                            <div class="form-group">
-                                <input type="file" name="file" id="file" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            	<div class="form-group col-sm-4">
+						
+					<a data-toggle="modal" class="btn btn-primary iit-btn-imagem" href="#"
+								th:title="'Editar Imagem'" data-target="#modalCadastroImagemProduto">
+						<i class="fas fa-camera"></i>
+					</a>
+					<label for="imagemProduto">Imagem</label>
+					<!-- Se Produto tem imagem cadastrada ou não -->
+					<div th:if="${produto.url_imagem}">
+					   <img id="imagemProduto" class="image_upload_preview" th:src="@{/produto/imagem/{nome}(nome=${produto.url_imagem})}" title="Imagem do produto" />
+					</div>
+					<!-- ELSE -->
+					<div th:unless="${produto.url_imagem}">
+					   <img id="imagemProduto" class="image_upload_preview" th:src="@{/imagem/produto-sem-imagem.jpg}" title="Imagem do produto" />
+					</div>
+						
+				</div>	
 
             <div class="botao-form">
                 <button type="submit" class="btn btn-success btn-xl">Cadastrar</button>
                 <button type="reset" class="btn btn-danger btn-xl">Limpar</button>
             </div>
         </div>
+        <div th:replace="produto/cadastro-foto-produto-modal :: modalImagemProduto"></div>
     </form>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
