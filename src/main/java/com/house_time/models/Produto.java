@@ -27,7 +27,7 @@ public class Produto {
 	
 	@Min(value = 1, message = "{estoque.not.null}")
 	private int estoque;
-	private String imagem;
+	private String url_imagem;
 	
 
 
@@ -113,12 +113,14 @@ public class Produto {
 		this.estoque = estoque;
 	}
 
-	public String getImagem() {
-		return imagem;
+
+
+	public String getUrl_imagem() {
+		return url_imagem;
 	}
 
-	public void setImagem(String imagem) {
-		this.imagem = imagem;
+	public void setUrl_imagem(String url_imagem) {
+		this.url_imagem = url_imagem;
 	}
 
 	@Override
