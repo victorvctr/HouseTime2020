@@ -43,6 +43,26 @@ public class ProdutoController {
 		return modelAndView;
 	}
 
+	@GetMapping("/Apple")
+	public ModelAndView listarApple() {
+
+		ModelAndView modelAndView = new ModelAndView("produto/lista-produtos");
+
+		modelAndView.addObject("produtos", produtos.findByFabricante("Apple"));
+
+		return modelAndView;
+	}
+	
+	@GetMapping("/Diesel")
+	public ModelAndView listarSansung() {
+
+		ModelAndView modelAndView = new ModelAndView("produto/lista-produtos");
+
+		modelAndView.addObject("produtos", produtos.findByFabricante("Diesel"));
+
+		return modelAndView;
+	}
+	
 	@GetMapping("/novo")
 	public ModelAndView novo(Produto produto) {
 
