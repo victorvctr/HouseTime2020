@@ -54,7 +54,7 @@ public class ProdutoController {
 	}
 	
 	@GetMapping("/Diesel")
-	public ModelAndView listarSansung() {
+	public ModelAndView listarDiesel() {
 
 		ModelAndView modelAndView = new ModelAndView("produto/lista-produtos");
 
@@ -62,6 +62,43 @@ public class ProdutoController {
 
 		return modelAndView;
 	}
+	@GetMapping("/Xiaomi")
+	public ModelAndView listarXiaomi() {
+
+		ModelAndView modelAndView = new ModelAndView("produto/lista-produtos");
+
+		modelAndView.addObject("produtos", produtos.findByFabricante("Xiaomi"));
+
+		return modelAndView;
+	}
+	@GetMapping("/Fossil")
+	public ModelAndView listarFossil() {
+
+		ModelAndView modelAndView = new ModelAndView("produto/lista-produtos");
+
+		modelAndView.addObject("produtos", produtos.findByFabricante("Fossil"));
+
+		return modelAndView;
+	}
+	@GetMapping("/Mountblanc")
+	public ModelAndView listarMountblanc() {
+
+		ModelAndView modelAndView = new ModelAndView("produto/lista-produtos");
+
+		modelAndView.addObject("produtos", produtos.findByFabricante("Mountblanc"));
+
+		return modelAndView;
+	}
+	@GetMapping("/Sansung")
+	public ModelAndView listarSangung() {
+
+		ModelAndView modelAndView = new ModelAndView("produto/lista-produtos");
+
+		modelAndView.addObject("produtos", produtos.findByFabricante("Sansung"));
+
+		return modelAndView;
+	}
+	
 	
 	@GetMapping("/novo")
 	public ModelAndView novo(Produto produto) {
