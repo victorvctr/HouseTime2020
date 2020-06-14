@@ -118,7 +118,7 @@
 			<img src="/imagem/logoapple.png" height='80' width="70" alt="Apple" />
 		</span>
 		<span th:case="'Samsung'">
-			<img src="/imagem/logosamsung.jpeg" height='65' width="245" alt="Samsung" />
+			<img src="/imagem/logosamsung.png" height='65' width="245" alt="Samsung" />
 		</span>
 		<span th:case="'Diesel'">
 			<img src="/imagem/logodiesel.png" height="50" width="240" alt="Diesel" />
@@ -147,12 +147,13 @@
 	<hr>
 		<div class="d-flex justify-content-center">
 			<div class='box'>
-            
+           
             	<span th:if="${produto.url_imagem}">
 					<img  id="imagemProduto" class="imagem_produto_listagem" height='210' width='170'
 						th:src="@{/produto/imagem/{nome}(nome=${produto.url_imagem})}"
 						th:title="${produto.modelo}" />
 				</span>
+				
 				<span th:unless="${produto.url_imagem}">
 					<img  id="imagemProduto" class="imagem_produto_listagem" height='210' width='170'
 						th:src="@{/imagem/produto-sem-imagem.jpg}" 
@@ -162,7 +163,12 @@
             
                 <h6><span th:text="${produto.modelo}"></span></h6>
                 <h4><span th:text="${produto.getValorReal()}"></span></h4>
-                <h3>Cor:<span th:text="${produto.cor}"></span></h3>
+                <h2>Cor:<span th:text="${produto.cor}"></span></h2>
+                <h3>Dimensão:<span th:text="${produto.dimensao}"></span></h3>
+                <h3>Peso:<span th:text="${produto.peso}"></span></h3>
+                <h3>Pulseira:<span th:text="${produto.pulseira}"></span></h3>
+                <h3>Sistema:<span th:text="${produto.sistema}"></span></h3>
+                 <h3>Estoque:<span th:text="${produto.estoque}"></span></h3>
                 <h5>á vista</h5>
                 <h5>(Ou em 12x s/ juros.)</h5>
           
@@ -191,10 +197,10 @@
 				<p>Here you can use rows and columns to organize your footer
 					content. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 				</p>
-				<img src="imagem/housetime.png" width="100px"><br>
+				<img src="/imagem/housetime.png" width="100px"><br>
 				<br>
 				<h6>Trabalhamos com os cartões:</h6>
-				<img src="imagem/cartao.png" width="300px">
+				<img src="/imagem/cartao.png" width="300px">
 			</div>
 			<!-- Grid column -->
 
@@ -206,22 +212,22 @@
 				<hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto"
 					style="width: 60px;">
 				<p>
-					<a class="dark-grey-text" href="apple.jsp">Apple</a>
+					<a class="dark-grey-text" href="/produto/apple">Apple</a>
 				</p>
 				<p>
-					<a class="dark-grey-text" href="samsung.jsp">Samsung</a>
+					<a class="dark-grey-text" href="/produto/xiaomi">Samsung</a>
 				</p>
 				<p>
-					<a class="dark-grey-text" href="diesel.jsp">Diesel</a>
+					<a class="dark-grey-text" href="/produto/diesel">Diesel</a>
 				</p>
 				<p>
-					<a class="dark-grey-text" href="fossil.jsp">Fossil</a>
+					<a class="dark-grey-text" href="/produto/fossil">Fossil</a>
 				</p>
 				<p>
-					<a class="dark-grey-text" href="montblanc.jsp">Mont Blanc</a>
+					<a class="dark-grey-text" href="/produto/montblanc">Mont Blanc</a>
 				</p>
 				<p>
-					<a class="dark-grey-text" href="xiaomi.jsp">Xiaomi</a>
+					<a class="dark-grey-text" href="/produto/xiaomi">Xiaomi</a>
 				</p>
 
 			</div>
