@@ -166,6 +166,9 @@ public class ProdutoController {
 		return fotoService.recuperarFoto(nome);
 	}
 
+	
+	
+	
 	@GetMapping("/apple")
 	public String apple() {
 		return "produto/apple";
