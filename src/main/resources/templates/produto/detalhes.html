@@ -4,14 +4,15 @@
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
-	<meta charset="utf-8">
-	<title>Detalhes Produto</title>
-	<link rel="icon" href="/imagem/icone.jpeg" type="image/x-icon" />
-	
-	<link rel="stylesheet" href="/css/bootstrap.min.css">
-	
-	<link rel="stylesheet" href="/css/css.css">
-	<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+<meta charset="utf-8">
+<title>Detalhes Produto</title>
+<link rel="icon" href="/imagem/icone.jpeg" type="image/x-icon" />
+
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="/css/css.css">
+<link href="https://fonts.googleapis.com/css?family=Comfortaa"
+	rel="stylesheet">
 </head>
 
 <header>
@@ -28,8 +29,9 @@
 
 		<div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link"
-					href="/">Início <span class="sr-only"></span></a></li>
+				<li class="nav-item active"><a class="nav-link" href="/">Início
+						<span class="sr-only"></span>
+				</a></li>
 				<li class="nav-item"><a class="nav-link" href="/contato">Contato</a></li>
 
 				<li class="nav-item dropdown"><a
@@ -70,8 +72,7 @@
 										da própria ferramenta de acesso. Todos os produtos possuem
 										garantias contra defeito de fabricação estipulado pelo
 										fornecedor/fabricante, mediante a apresentação da nota fiscal.</p>
-									<br>
-									<br>
+									<br> <br>
 
 									<h2>
 										<b>POLÍTICAS DE PRIVACIDADE</b>
@@ -92,88 +93,109 @@
 						</div>
 					</div></li>
 
-				<li class="nav-item"><a class="nav-link" href="login.jsp">Login</a></li>
+				<li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
 
-				<li class="nav-item"><a class="nav-link"
-					href="cadastrousuario1.jsp">Cadastra-se</a></li>
+				<li class="nav-item"><a class="nav-link" href="/cliente/novo">Cadastra-se</a></li>
 			</ul>
-			<form class="form-inline my-2 my-lg-0">
-				<input class="form-control mr-sm-2" type="search"
-					placeholder="Pesquisar" arial-label="Pesquisar">
-				<button class="btn my-2 my-sm-0" type="submit"
-					style="background-color: lightgrey;">Pesquisar</button>
-			</form>
+
 		</div>
 	</nav>
 </header>
 
 <body>
-	
+
 	<th:block th:object="${produto}">
-	<div class='logotipo text-center' th:switch="${produto.fabricante}">
-	    <span th:case="'Xiaomi'">
-	    	<img src="/imagem/logoxiaomi.png" height='130' width="160" alt="Xiaomi" />
-	    </span>
-	    <span th:case="'Apple'">
-			<img src="/imagem/logoapple.png" height='80' width="70" alt="Apple" />
-		</span>
-		<span th:case="'Samsung'">
-			<img src="/imagem/logosamsung.png" height='65' width="245" alt="Samsung" />
-		</span>
-		<span th:case="'Diesel'">
-			<img src="/imagem/logodiesel.png" height="50" width="240" alt="Diesel" />
-		</span>
-		<span th:case="'Montblanc'">
-			<img src="/imagem/mblogo.png" height='100' width='210' alt="Montblanc" />
-		</span>
-		<span th:case="'Fossil'">
-			<img src="/imagem/logofossil.png" height='150' width='290' alt="Montblanc" />
-		</span>
-	</div>
-	<hr>
-	<div class="container" style="padding-left: 130px;">
-		<div class="row">
-			<div class="col-sm">
-				<img src="/imagem/tarja1.png">
-			</div>
-			<div class="col">
-				<img src="/imagem/tarja3.png">
-			</div>
-			<div class="col">
-				<img src="/imagem/tarja5.png">
+		<div class='logotipo text-center' th:switch="${produto.fabricante}">
+			<span th:case="'Xiaomi'"> <img src="/imagem/logoxiaomi.png"
+				height='130' width="160" alt="Xiaomi" />
+			</span> <span th:case="'Apple'"> <img src="/imagem/logoapple.png"
+				height='80' width="70" alt="Apple" />
+			</span> <span th:case="'Samsung'"> <img src="/imagem/logosamsung.png"
+				height='65' width="245" alt="Samsung" />
+			</span> <span th:case="'Diesel'"> <img src="/imagem/logodiesel.png"
+				height="50" width="240" alt="Diesel" />
+			</span> <span th:case="'Montblanc'"> <img src="/imagem/mblogo.png"
+				height='100' width='210' alt="Montblanc" />
+			</span> <span th:case="'Fossil'"> <img src="/imagem/logofossil.png"
+				height='150' width='290' alt="Montblanc" />
+			</span>
+		</div>
+		<hr>
+		<div class="container" style="padding-left: 130px;">
+			<div class="row">
+				<div class="col-sm">
+					<img src="/imagem/tarja1.png">
+				</div>
+				<div class="col">
+					<img src="/imagem/tarja3.png">
+				</div>
+				<div class="col">
+					<img src="/imagem/tarja5.png">
+				</div>
 			</div>
 		</div>
-	</div>
-	<hr>
+		<hr>
 		<div class="d-flex justify-content-center">
-			<div class='box'>
-           
-            	<span th:if="${produto.url_imagem}">
-					<img  id="imagemProduto" class="imagem_produto_listagem" height='210' width='170'
-						th:src="@{/produto/imagem/{nome}(nome=${produto.url_imagem})}"
-						th:title="${produto.modelo}" />
+			<div class="col">
+        <center>
+				<span th:if="${produto.url_imagem}"> <img id="imagemProduto"
+					class="imagem_produto_listagem" height='210' width='170'
+					th:src="@{/produto/imagem/{nome}(nome=${produto.url_imagem})}"
+					th:title="${produto.modelo}" />
+				</span> <span th:unless="${produto.url_imagem}"> <img
+					id="imagemProduto" class="imagem_produto_listagem" height='210'
+					width='170' th:src="@{/imagem/produto-sem-imagem.jpg}"
+					th:title="${produto.modelo}" />
 				</span>
 				
-				<span th:unless="${produto.url_imagem}">
-					<img  id="imagemProduto" class="imagem_produto_listagem" height='210' width='170'
-						th:src="@{/imagem/produto-sem-imagem.jpg}" 
-						th:title="${produto.modelo}" />
-				</span>
+			</div>
+			<div class="col">
 
-            
-                <h6><span th:text="${produto.modelo}"></span></h6>
-                <h4><span th:text="${produto.getValorReal()}"></span></h4>
-                <h2>Cor:<span th:text="${produto.cor}"></span></h2>
-                <h3>Dimensão:<span th:text="${produto.dimensao}"></span></h3>
-                <h3>Peso:<span th:text="${produto.peso}"></span></h3>
-                <h3>Pulseira:<span th:text="${produto.pulseira}"></span></h3>
-                <h3>Sistema:<span th:text="${produto.sistema}"></span></h3>
-                 <h3>Estoque:<span th:text="${produto.estoque}"></span></h3>
-                <h5>á vista</h5>
-                <h5>(Ou em 12x s/ juros.)</h5>
-          
-        	</div>
-       </div>
+				<h1>
+					<span th:text="${produto.modelo}"></span>
+				</h1>
+<!-- <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+ -->				<h4>
+					<span th:text="${produto.getValorReal()}"></span>
+				</h4>
+
+				<h5>á vista</h5>
+				<h5>(Ou em 12x s/ juros.)</h5>
+				<img style="margin-top: 12px;" src="/imagem/botao-comprar.png"
+					width="250px"> <img style="margin-top: 20px;"
+					src="/imagem/frete.jpg" width="450px" height="110px">
+			</div>
+		</div>
+		<hr>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<h2>Ficha técnica</h2>
+					 <hr>
+                  <h5><b>Caracteristicas:</b></h5>
+					
+						<h6>Cor:<span th:text="${produto.cor}"><br></span></h6>
+					
+					
+						<h6>Dimensão:<span th:text="${produto.dimensao}"><br></span></h6>
+					
+					
+						<h6>Peso:<span th:text="${produto.peso}"><br></span></h6>
+				
+					
+						<h6>Pulseira:<span th:text="${produto.pulseira}"><br></span></h6>
+				
+					
+						<h6>Sistema:<span th:text="${produto.sistema}"><br></span></h6>
+				
+					
+						<h6>Estoque:<span th:text="${produto.estoque}"><br></span></h6>
+					
+					
+				</div>
+			</div>
+		</div>
+
 	</th:block>
 </body>
 
@@ -197,8 +219,7 @@
 				<p>Here you can use rows and columns to organize your footer
 					content. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 				</p>
-				<img src="/imagem/housetime.png" width="100px"><br>
-				<br>
+				<img src="/imagem/housetime.png" width="100px"><br> <br>
 				<h6>Trabalhamos com os cartões:</h6>
 				<img src="/imagem/cartao.png" width="300px">
 			</div>
