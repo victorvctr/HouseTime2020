@@ -6,11 +6,12 @@
 
     <head>
         <meta charset="utf-8">
-    <title>Apple</title>
-    <link rel="icon" href="/imagem/icone.jpeg" type="image/x-icon" />
-
-    <link rel='stylesheet' href="/css/bootstrap.min.css">
-    <link rel='stylesheet' href="/css/css.css">
+	    <title>Apple</title>
+	    <link rel="icon" href="/imagem/icone.jpeg" type="image/x-icon" />
+	
+	    <link rel='stylesheet' href="/css/bootstrap.min.css">
+	    <link rel='stylesheet' href="/css/css.css">
+	    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
     </head>
 
     <header>
@@ -79,8 +80,8 @@
     </header>
 
     <body>
-        <div class='logotipo'>
-           <center> <img src="/imagem/logoapple.png" height='80' width='70' alt="Apple"/></center>
+        <div class='logotipo text-center'>
+           <img src="/imagem/logoapple.png" height='80' width='70' alt="Apple"/>
         </div>
         <hr>
         <div class="container" style="padding-left:130px;">
@@ -97,69 +98,29 @@
             </div>
         </div>
         <hr>
-
-        <div class='box'>
-            <a href="apple1.html"><img src='/imagem/apple2.jpg' height='210' width='170' alt='SERIE 4 CELLULAR' /></a>
-            
-                <h6> APPLE WATCH SERIE 4 CELLULAR </h6>
-                <h4>R$8.280,00</h4>
-                <h5>á vista</h5>
-                <h5>(Ou em 12x s/ juros.)</h5>
-          
+		<th:block th:each="produto: ${produtos}">
+		
+		<div class='box'>
+            <a th:href="@{/produto/detalhes/{idProd}(idProd=${produto.idProd})}">
+            	<span th:if="${produto.url_imagem}">
+					<img  id="imagemProduto" class="imagem_produto_listagem" height='210' width='170'
+						th:src="@{/produto/imagem/{nome}(nome=${produto.url_imagem})}"
+						th:title="${produto.modelo}" />
+				</span>
+				<span th:unless="${produto.url_imagem}">
+					<img  id="imagemProduto" class="imagem_produto_listagem" height='210' width='170'
+						th:src="@{/imagem/produto-sem-imagem.jpg}" 
+						th:title="${produto.modelo}" />
+				</span>
+            </a>
+            <h6><span th:text="${produto.modelo}"></span></h6>
+            <h4><span th:text="${produto.getValorReal()}"></span></h4>
+            <h5>á vista</h5>
+            <h5>(Ou em 12x s/ juros.)</h5>
         </div>
-
-        <div class='box'>
-            <a href="apple2.html"><img src='/imagem/apple3.jpg' height='210' width='170' alt='sERIE 4 CELLULAR' /></a>
-            
-                <h6>APPLE WATCH SERIE 4 CELLULAR</h6>
-                <h4>R$00,00</h4>
-                <h5>á vista</h5>
-                <h5>(Ou em 12x s/ juros.)</h5>
-            
-        </div>
-
-        <div class='box'>
-            <a href="apple3.html"><img src='/imagem/apple4.jpg' height='210' width='170' alt='Serie 4 cellular' /></a>
-            
-                <h6>APPLE WATCH SERIE 4 CELLULAR</h6>
-                <h4>R$00,00</h4>
-                <h5>á vista</h5>
-                <h5>(Ou em 12x s/ juros.)</h5>
-            
-
-        </div>
-
-        <div class='box'>
-            <a href="apple4.html"><img src='/imagem/apple5.jpg' height='210' width='170' alt='Serie 3 nike+' /></a>
-            
-                <h6>APPLE WATCH SERIE 3 NIKE+</h6>
-                <h4>R$00,00</h4>
-                <h5>á vista</h5>
-                <h5>(Ou em 12x s/ juros.)</h5>
-            
-        </div>
-
-        <div class='box'>
-            <a href="apple5.html"><img src='/imagem/apple6.jpg' height='210' width='170' alt='Serie 3' /></a>
-            
-                <h6>APPLE WATCH SERIE 3</h6>
-                <h4>R$00,00</h4>
-                <h5>á vista</h5>
-                <h5>(Ou em 12x s/ juros.)</h5>
-            
-        </div>
-
-        <div class='box'>
-            <a href="apple6.html"><img src='/imagem/apple7.jpg' height='210' width='170' alt='Serie 4' /></a>
-            
-                <h6>APPLE WATCH SERIE 4 CELLULAR</h6>
-                <h4>R$00,00</h4>
-                <h5>á vista</h5>
-                <h5>(Ou em 12x s/ juros.)</h5>
-            
-        </div>
-        <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
-
+		
+		</th:block>
+        
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

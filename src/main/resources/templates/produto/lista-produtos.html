@@ -6,11 +6,16 @@
 <title>TIME HOUSE</title>
 <link rel="icon" href="/imagem/icone.jpeg" type="image/x-icon" />
 
-<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css}">
 
 <link rel="stylesheet" href="/css/css.css">
 
 <link rel="stylesheet" href="/css/estilo.css">
+
+<link th:href="@{/webjars/font-awesome/5.8.2/css/all.css}" rel="stylesheet" />
+
+<script th:src="@{/webjars/jquery/3.4.0/jquery.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.4.1-1/js/bootstrap.min.js}"></script>
 
 
 </head>
@@ -152,7 +157,7 @@
 								</td>
 								<td class="text-center" th:unless="${produto.url_imagem}">
 									<img  id="imagemProduto" class="imagem_produto_listagem" 
-										th:src="@{/images/produto-sem-imagem.jpg}" title="Imagem do Produto" />
+										th:src="@{/imagem/produto-sem-imagem.jpg}" title="Imagem do Produto" />
 								</td>
 								
 								<td class="text-center">

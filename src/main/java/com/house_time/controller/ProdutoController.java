@@ -18,7 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.house_time.models.Produto;
-
+import com.house_time.repositorios.FornecedorRepositorio;
 import com.house_time.repositorios.ProdutoRepositorio;
 
 import com.house_time.infra.FotoService;
@@ -29,6 +29,9 @@ public class ProdutoController {
 
 	@Autowired
 	private ProdutoRepositorio produtos;
+	
+	@Autowired
+	private FornecedorRepositorio fornecedores;
 
 	@Autowired
 	private FotoService fotoService;
@@ -43,67 +46,12 @@ public class ProdutoController {
 		return modelAndView;
 	}
 
-	@GetMapping("/Apple")
-	public ModelAndView listarApple() {
-
-		ModelAndView modelAndView = new ModelAndView("produto/lista-produtos");
-
-		modelAndView.addObject("produtos", produtos.findByFabricante("Apple"));
-
-		return modelAndView;
-	}
-	
-	@GetMapping("/Diesel")
-	public ModelAndView listarDiesel() {
-
-		ModelAndView modelAndView = new ModelAndView("produto/lista-produtos");
-
-		modelAndView.addObject("produtos", produtos.findByFabricante("Diesel"));
-
-		return modelAndView;
-	}
-	@GetMapping("/Xiaomi")
-	public ModelAndView listarXiaomi() {
-
-		ModelAndView modelAndView = new ModelAndView("produto/lista-produtos");
-
-		modelAndView.addObject("produtos", produtos.findByFabricante("Xiaomi"));
-
-		return modelAndView;
-	}
-	@GetMapping("/Fossil")
-	public ModelAndView listarFossil() {
-
-		ModelAndView modelAndView = new ModelAndView("produto/lista-produtos");
-
-		modelAndView.addObject("produtos", produtos.findByFabricante("Fossil"));
-
-		return modelAndView;
-	}
-	@GetMapping("/Mountblanc")
-	public ModelAndView listarMountblanc() {
-
-		ModelAndView modelAndView = new ModelAndView("produto/lista-produtos");
-
-		modelAndView.addObject("produtos", produtos.findByFabricante("Mountblanc"));
-
-		return modelAndView;
-	}
-	@GetMapping("/Sansung")
-	public ModelAndView listarSangung() {
-
-		ModelAndView modelAndView = new ModelAndView("produto/lista-produtos");
-
-		modelAndView.addObject("produtos", produtos.findByFabricante("Sansung"));
-
-		return modelAndView;
-	}
-	
-	
 	@GetMapping("/novo")
 	public ModelAndView novo(Produto produto) {
 
 		ModelAndView modelAndView = new ModelAndView("produto/Cadastroproduto1");
+		
+		modelAndView.addObject("fornecedores", fornecedores.findAll());
 
 		modelAndView.addObject(produto);
 
@@ -159,6 +107,18 @@ public class ProdutoController {
 
 	}
 	
+	@GetMapping("/detalhes/{id}")
+	public ModelAndView detalhes(@PathVariable Long id) {
+		ModelAndView modelAndView = new ModelAndView("produto/detalhes");
+		
+		Produto p = produtos.getOne(id);
+
+		modelAndView.addObject(p);
+
+		return modelAndView;
+
+	}
+	
 	
 	@GetMapping("/imagem/{nome:.*}")
 	public @ResponseBody byte[] recuperarFoto(@PathVariable String nome) throws IOException {
@@ -166,36 +126,62 @@ public class ProdutoController {
 		return fotoService.recuperarFoto(nome);
 	}
 
-	
-	
-	
-	@GetMapping("/apple")
-	public String apple() {
-		return "produto/apple";
+	@GetMapping(value={"/Apple","/apple"})
+	public ModelAndView apple() {
+		ModelAndView modelAndView = new ModelAndView("produto/apple");
+
+		modelAndView.addObject("produtos", produtos.findByFabricante("Apple"));
+
+		return modelAndView;
+
 	}
 
-	@GetMapping("/samsung")
-	public String sansung() {
-		return "produto/samsung";
+	@GetMapping(value={"/Samsung","/samsung"})
+	public ModelAndView sansung() {
+		ModelAndView modelAndView = new ModelAndView("produto/samsung");
+
+		modelAndView.addObject("produtos", produtos.findByFabricante("Samsung"));
+
+		return modelAndView;
+
 	}
 
-	@GetMapping("/diesel")
-	public String diesel() {
-		return "produto/diesel";
+	@GetMapping(value={"/Diesel","/diesel"})
+	public ModelAndView diesel() {
+		ModelAndView modelAndView = new ModelAndView("produto/diesel");
+
+		modelAndView.addObject("produtos", produtos.findByFabricante("Diesel"));
+
+		return modelAndView;
 	}
 
-	@GetMapping("/fossil")
-	public String fossil() {
-		return "produto/fossil";
+	@GetMapping(value={"/Fossil","/fossil"})
+	public ModelAndView fossil() {
+		ModelAndView modelAndView = new ModelAndView("produto/fossil");
+
+		modelAndView.addObject("produtos", produtos.findByFabricante("Fossil"));
+
+		return modelAndView;
+
 	}
 
-	@GetMapping("/montblanc")
-	public String montblanc() {
-		return "produto/montblanc";
+	@GetMapping(value={"/Montblanc","/montblanc"})
+	public ModelAndView montblanc() {
+		ModelAndView modelAndView = new ModelAndView("produto/montblanc");
+
+		modelAndView.addObject("produtos", produtos.findByFabricante("Montblanc"));
+
+		return modelAndView;
+
 	}
 
-	@GetMapping("/xiaomi")
-	public String xiaomi() {
-		return "produto/xiaomi";
+	@GetMapping(value={"/Xiaomi","/xiaomi"})
+	public ModelAndView xiaomi() {
+		ModelAndView modelAndView = new ModelAndView("produto/xiaomi");
+
+		modelAndView.addObject("produtos", produtos.findByFabricante("Xiaomi"));
+
+		return modelAndView;
+
 	}
 }

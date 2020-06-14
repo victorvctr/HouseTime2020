@@ -98,6 +98,10 @@ public class Produto {
 	public String getValor() {
 		return valor;
 	}
+	
+	public String getValorReal() {
+		return "R$ " + valor;
+	}
 
 	public void setValor(String valor) {
 		this.valor = valor;
