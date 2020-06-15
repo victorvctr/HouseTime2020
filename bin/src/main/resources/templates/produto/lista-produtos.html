@@ -6,9 +6,16 @@
 <title>TIME HOUSE</title>
 <link rel="icon" href="/imagem/icone.jpeg" type="image/x-icon" />
 
-<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css}">
 
 <link rel="stylesheet" href="/css/css.css">
+
+<link rel="stylesheet" href="/css/estilo.css">
+
+<link th:href="@{/webjars/font-awesome/5.8.2/css/all.css}" rel="stylesheet" />
+
+<script th:src="@{/webjars/jquery/3.4.0/jquery.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.4.1-1/js/bootstrap.min.js}"></script>
 
 
 </head>
@@ -143,7 +150,15 @@
 								<td th:text="${produto.modelo}">123</td>
 								<td th:text="${produto.valor}">123</td>
 								<td th:text="${produto.estoque}">123</td>
-								<td th:text="${produto.url_imagem}">123</td>
+								<td class="text-center" th:if="${produto.url_imagem}">
+									<img  id="imagemProduto" class="imagem_produto_listagem" 
+									th:src="@{/produto/imagem/{nome}(nome=${produto.url_imagem})}"
+										title="Imagem do Produto" />
+								</td>
+								<td class="text-center" th:unless="${produto.url_imagem}">
+									<img  id="imagemProduto" class="imagem_produto_listagem" 
+										th:src="@{/imagem/produto-sem-imagem.jpg}" title="Imagem do Produto" />
+								</td>
 								
 								<td class="text-center">
 								<form method="POST"	th:action="@{/produto/excluir/{idProd}(idProd=${produto.idProd})}">

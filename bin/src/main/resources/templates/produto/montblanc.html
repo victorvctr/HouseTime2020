@@ -6,11 +6,12 @@
 
     <head>
         <meta charset="utf-8">
-    <title>Montblanc</title>
-    <link rel="icon" href="/imagem/icone.jpeg" type="image/x-icon" />
-
-    <link rel='stylesheet' href="/css/bootstrap.min.css">
-    <link rel='stylesheet' href="/css/css.css">
+	    <title>Montblanc</title>
+	    <link rel="icon" href="/imagem/icone.jpeg" type="image/x-icon" />
+	
+	    <link rel='stylesheet' href="/css/bootstrap.min.css">
+	    <link rel='stylesheet' href="/css/css.css">
+	    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
     </head>
 
 
@@ -79,8 +80,8 @@
 </header>
 
 <body>
-    <div class='logotipo'>
-        <center><img src="/imagem/mblogo.png" height='100' width='210' alt="Mont Blanc" /></center>
+    <div class='logotipo text-center'>
+        <img src="/imagem/mblogo.png" height='100' width='210' alt="Mont Blanc" />
     </div>
     <hr>
     <div class="container" style="padding-left:130px;">
@@ -98,67 +99,28 @@
         </div>
     <hr>
 
-    <div class='box'>
-        <img src='/imagem/mont1.jpg' height='210' width='130' alt='Summit 2 preto' />
-        
-            <h6>SUMMIT 2 PRETO</h6>
-            <h4>R$00,00</h4>
+   <th:block th:each="produto: ${produtos}">
+		
+		<div class='box'>
+            <a th:href="@{/produto/detalhes/{idProd}(idProd=${produto.idProd})}">
+            	<span th:if="${produto.url_imagem}">
+					<img  id="imagemProduto" class="imagem_produto_listagem" height='210' width='170'
+						th:src="@{/produto/imagem/{nome}(nome=${produto.url_imagem})}"
+						th:title="${produto.modelo}" />
+				</span>
+				<span th:unless="${produto.url_imagem}">
+					<img  id="imagemProduto" class="imagem_produto_listagem" height='210' width='170'
+						th:src="@{/imagem/produto-sem-imagem.jpg}" 
+						th:title="${produto.modelo}" />
+				</span>
+            </a>
+            <h6><span th:text="${produto.modelo}"></span></h6>
+            <h4><span th:text="${produto.getValorReal()}"></span></h4>
             <h5>á vista</h5>
             <h5>(Ou em 12x s/ juros.)</h5>
-        
-    </div>
-
-    <div class='box'>
-        <img src='/imagem/mont2.jpg' height='210' width='130' alt='Summit 2 aço' />
-        
-            <h6>SUMMIT 2 AÇO</h6>
-            <h4>R$00,00</h4>
-            <h5>á vista</h5>
-            <h5>(Ou em 12x s/ juros.)</h5>
-        
-    </div>
-
-    <div class='box'>
-        <img src='/imagem/mont3.jpg' height='210' width='130' alt='Summit 2 Titanium' />
-        
-            <h6>SUMMIT 2 TITANIUM</h6>
-            <h4>R$00,00</h4>
-            <h5>á vista</h5>
-            <h5>(Ou em 12x s/ juros.)</h5>
-        
-    </div>
-
-    <div class='box'>
-        <img src='/imagem/mont4.jpg' height='210' width='130' alt='Summit 2 aço preto e nylon' />
-        
-            <h6>SUMMIT 2 AÇO PRETO E NYLON</h6>
-            <h4>R$00,00</h4>
-            <h5>á vista</h5>
-            <h5>(Ou em 12x s/ juros.)</h5>
-        
-    </div>
-
-    <div class='box'>
-        <img src='/imagem/mont5.jpg' height='210' width='130' alt='Summit 2 aço preto Milanese Edition ' />
-        
-            <h6>SUMMIT 2 AÇO PRETO MILANESE EDITION</h6>
-            <h4>R$00,00</h4>
-            <h5>á vista</h5>
-            <h5>(Ou em 12x s/ juros.)</h5>
-        
-    </div>
-
-    <div class='box'>
-        <img src='/imagem/mont6.jpg' height='210' width='130' alt='Summit 2 aço inoxidável e couro' />
-        
-            <h6>SUMMIT 2 AÇO INOXIDAVEL E COURO</h6>
-            <h4>R$00,00</h4>
-            <h5>á vista</h5>
-            <h5>(Ou em 12x s/ juros.)</h5>
-        
-    </div>
-    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
-
+        </div>
+		
+	</th:block>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
@@ -236,7 +198,7 @@
                     <a class="dark-grey-text" href="#" onclick="$('#ModalLongoExemplo').modal('show')">Termos de Uso</a>
                 </p>
                 <p>
-                    <a class="dark-grey-text" href="login.html">Login</a>
+                    <a class="dark-grey-text" href="/login">Login</a>
                 </p>
 
             </div>
