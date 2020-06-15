@@ -8,4 +8,6 @@ import com.house_time.models.Contato;
 
 public interface ContatoRepositorio extends JpaRepository <Contato, Long> {
 
+	
+
 }
