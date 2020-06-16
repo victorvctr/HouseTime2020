@@ -19,6 +19,7 @@ public class SecurityController {
 		if(user != null) {
 			return "redirect:/index";
 		}
+		
 		return "login";
 	}
 	
