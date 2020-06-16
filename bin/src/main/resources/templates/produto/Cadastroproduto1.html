@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/css/css.css">
     <link rel="stylesheet" href="/css/estilo.css">
     <link th:href="@{/webjars/font-awesome/5.8.2/css/all.css}" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+   <!--  <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet"> -->
     <script th:src="@{/webjars/jquery/3.4.0/jquery.js}"></script>
 	<script th:src="@{/webjars/bootstrap/4.4.1/js/bootstrap.min.js}"></script>
 </head>
@@ -26,61 +26,36 @@
         </button>
 
 
-        <div id="conteudoNavbarSuportado" class="collapse navbar-collapse">
+       <div id="conteudoNavbarSuportado" class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">Início <span class="sr-only"></span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/contato">Contato</a></li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sobre Nós</a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="sobre">A Empresa</a>
-
-                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#ModalLongoExemplo">
-                            Politicas de Privacidade
-                        </button>
-
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Usuários</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/usuario/novo">Novo Usuário</a>
+                        <a class="dropdown-item" href="/usuario">Lista de Usuários</a>
                     </div>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="ModalLongoExemplo" tabindex="-1" role="dialog" aria-labelledby="TituloModalLongoExemplo" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="TituloModalLongoExemplo">Termos de uso/Políticas de privacidade</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <h2><b>TERMOS DE USO</b></h2>
-                                    <p>Todas as imagens presentes nesse site, é de uso exclusivo da empresa House Time. É expressamente proibido qualquer tipo de cópia sem prévia comunicação e autorização da empresa.
-                                        As imagens aqui apresentadas, são ilustrativas, ou seja, é apenas o mostruário do produto que o cliente irá adquirir. Pode ocorrer algumas alterações básicas de cores do produto devido configuração de cada monitor, tela ou até mesmo da própria ferramenta de acesso.
-                                        Todos os produtos possuem garantias contra defeito de fabricação estipulado pelo fornecedor/fabricante, mediante a apresentação da nota fiscal.</p><br><br>
-
-                                    <h2><b>POLÍTICAS DE PRIVACIDADE</b></h2>
-                                    <p>Nós da House Time, prezamos muito por nossos clientes, então garantimos uma compra totalmente segura para quem utiliza nosso site. Todos os dados cadastrais de nossos clientes são confidenciais. Todas as informações bancárias, como por exemplo números de cartões, são criptografadas mantendo a segurança dos dados.</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                                </div>
-                            </div>
-                        </div>
+                </li>
+                
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Produtos</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/produto/novo">Novo Produto</a>
+                        <a class="dropdown-item" href="/produto">Lista de Produtos</a>
                     </div>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="/login">Login</a></li>
+                
             </ul>
             </div>
             </nav>
 </header>
 
 <body>
-<center><h1 style="font-family: 'Comfortaa script=latin rev=1'; font-weight: 400; font-style: normal;">Cadastro de produto</h1></center>
+<div class="cadastro-usu">
+<center><h1 class="text-center">Cadastro de Produto</h1></center>
+            <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+            </div>
     <form method="POST" th:object="${produto}" th:action="@{/produto/salvar}" enctype="multipart/form-data">
         
     <div class="alert alert-danger alert-dismissible" role="alert"
@@ -175,6 +150,13 @@
 						
 				</div>
             </div>
+            	<div class="custom-control custom-checkbox">
+				      <br><input type="checkbox" class="custom-control-input"  id="ativo" th:field="*{ativo}">
+				      <label class="custom-control-label" for="ativo">Ativo</label>
+				    </div>
+				    </div>
+            
+            
             <div class="botao-form">
                 <button type="submit" class="btn btn-success btn-xl">Cadastrar</button>
                 <button type="reset" class="btn btn-danger btn-xl">Limpar</button>
@@ -188,100 +170,4 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"> </script>
 </body>
 
-<!-- Footer -->
-    <footer class="page-footer font-small blue-grey lighten-5" style="background-color:#E8E8E8">
-
-        <!-- Footer Links -->
-        <div class="container text-center text-md-left mt-5">
-
-            <!-- Grid row -->
-            <div class="row mt-3 dark-grey-text">
-
-                <!-- Grid column -->
-                <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
-
-                    <!-- Content -->
-                    <h6 class="text-uppercase font-weight-bold">House Time</h6>
-                    <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                    <p>Somos uma empresa especializada em SmartWatch, estamos prontos para antedê-los!
-                    </p>
-                    <img src="/imagem/housetime.png" width="100px"><br><br>
-                    <h6>Trabalhamos com os cartões:</h6>
-                    <img src="/imagem/cartao.png" width="300px">
-                </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
-                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-
-                    <!-- Links -->
-                    <h6 class="text-uppercase font-weight-bold">Produtos</h6>
-                    <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                    <p>
-                        <a class="dark-grey-text" href="apple.html">Apple</a>
-                    </p>
-                    <p>
-                        <a class="dark-grey-text" href="samsung.html">Samsung</a>
-                    </p>
-                    <p>
-                        <a class="dark-grey-text" href="diesel.html">Diesel</a>
-                    </p>
-                    <p>
-                        <a class="dark-grey-text" href="fossil.html">Fossil</a>
-                    </p>
-                    <p>
-                        <a class="dark-grey-text" href="montblanc.html">Mont Blanc</a>
-                    </p>
-                    <p>
-                        <a class="dark-grey-text" href="xiaomi.html">Xiaomi</a>
-                    </p>
-
-                </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
-                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-
-                    <!-- Links -->
-                    <h6 class="text-uppercase font-weight-bold">Menu</h6>
-                    <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                    <p>
-                        <a class="dark-grey-text" href="/">Início</a>
-                    </p>
-                    <p>
-                        <a class="dark-grey-text" href="contato.html">Contato</a>
-                    </p>
-                    <p>
-                        <a class="dark-grey-text" href="sobre">A Empresa</a>
-                    </p>
-                    <p>
-                        <a class="dark-grey-text" href="#" onclick="$('#ModalLongoExemplo').modal('show')">Termos de Uso</a>
-                    </p>
-                    <p>
-                        <a class="dark-grey-text" href="/login">Login</a>
-                    </p>
-
-                </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
-                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-
-                    <!-- Links -->
-                    <h6 class="text-uppercase font-weight-bold">Localização</h6>
-                    <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                    <p>
-                        <i class="fas fa-home mr-0"></i>R. Cel. Fernando Prestes, 326 - Centro, Santo André - SP, 09020-110</p>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5630.894372901863!2d-46.53244551656858!3d-23.66167043927771!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xcdeec0304ee021f6!2sCol%C3%A9gio+Pent%C3%A1gono+-+Unidade+Centro!5e0!3m2!1spt-BR!2sbr!4v1557419069683!5m2!1spt-BR!2sbr" width="300" height="260" frameborder="0" style="border:0" allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-
-
-        <!-- Copyright -->
-        <div class="footer-copyright text-center text-black-50 py-3 " style="background-color:#D3D3D3;">© 2019 Copyright:
-            <a class="dark-grey-text" href="https://mdbootstrap.com/education/bootstrap/">7ForDeveloper</a>
-        </div>
-        1
-
-    </footer></html>
+</html>

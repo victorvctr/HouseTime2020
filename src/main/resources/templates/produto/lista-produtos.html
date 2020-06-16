@@ -90,11 +90,12 @@
 								<th scope="col">Modelo</th>
 								<th scope="col">Valor</th>
 								<th scope="col">Estoque</th>
+								<th scope="col" class="text-center">Ações</th>
+								<!-- <th scope="col">Status</th> -->
 								<th scope="col">Imagem</th>
 								
 								
 								
-								<th scope="col" class="text-center">Ações</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -120,7 +121,7 @@
 									<img  id="imagemProduto" class="imagem_produto_listagem" 
 										th:src="@{/imagem/produto-sem-imagem.jpg}" title="Imagem do Produto" />
 								</td>
-								
+								<td class="text-center" th:text="${produto.ativo}">123</td>
 								<td class="text-center">
 								<form method="POST"	th:action="@{/produto/excluir/{idProd}(idProd=${produto.idProd})}">
 										<a class="btn btn-primary btn-sm"
@@ -128,7 +129,7 @@
 											th:title="Editar"> <i class="fa fa-pencil-alt"></i>
 										</a>
 										<button th:data-nome="|o produto ${produto.idProd}|" type="submit" class="btn btn-danger btn-sm" 
-												onclick="return confirmarExclusao(this.getAttribute('data-nome'))" title="Excluir">
+												onclick="return confirmarExclusao(this.getAttribute('data-nome'))" title="Desativar">
 											<span class="far fa-trash-alt"></span>
 										</button>
 									</form>

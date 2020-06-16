@@ -14,19 +14,18 @@ centralizar {
 }
 
 /*-----------------------------------------------------------*\
-  Erro panel
+  Error panel
   - Para ser usado em páginas de erro simpls (404, 500, etc)
 \*-----------------------------------------------------------*/
 .iit-error-panel {
 	margin-top: 2em; 
-	background-color : white;
+	background-color : #cbc9ca;
 	text-align: center;
 }
 
 .iit-error-panel__description {
 	display: block;
 	padding: 18px 0;
-	text-align: center;
 }
 
 .iit-error-panel__code {
