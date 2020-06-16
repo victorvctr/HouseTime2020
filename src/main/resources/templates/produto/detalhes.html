@@ -139,7 +139,7 @@
 			<div class="col">
         <center>
 				<span th:if="${produto.url_imagem}"> <img id="imagemProduto"
-					class="imagem_produto_listagem" height='300' width='220'
+					class="imagem_produto_listagem" height='300' width='235'
 					th:src="@{/produto/imagem/{nome}(nome=${produto.url_imagem})}"
 					th:title="${produto.modelo}" />
 				</span> <span th:unless="${produto.url_imagem}"> <img

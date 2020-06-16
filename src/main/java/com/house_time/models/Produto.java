@@ -24,7 +24,15 @@ public class Produto {
 	private String peso;
 	private String modelo;
 	private String valor;
-	
+	private boolean ativo;
+	public boolean getAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
+	}
+
 	@Min(value = 1, message = "{estoque.not.null}")
 	private int estoque;
 	private String url_imagem;

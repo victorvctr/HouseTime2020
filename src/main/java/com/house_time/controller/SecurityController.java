@@ -20,6 +20,7 @@ public class SecurityController {
 			return "redirect:/index";
 		}
 		
+		
 		return "login";
 	}
 	
