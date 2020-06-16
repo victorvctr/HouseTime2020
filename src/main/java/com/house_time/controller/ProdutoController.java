@@ -140,7 +140,7 @@ public class ProdutoController {
 	public ModelAndView sansung() {
 		ModelAndView modelAndView = new ModelAndView("produto/samsung");
 
-		modelAndView.addObject("produtos", produtos.findByFabricante("Samsung"));
+		modelAndView.addObject("produtos", produtos.findByFabricanteAndAtivoTrue("Samsung"));
 
 		return modelAndView;
 
@@ -150,7 +150,7 @@ public class ProdutoController {
 	public ModelAndView diesel() {
 		ModelAndView modelAndView = new ModelAndView("produto/diesel");
 
-		modelAndView.addObject("produtos", produtos.findByFabricante("Diesel"));
+		modelAndView.addObject("produtos", produtos.findByFabricanteAndAtivoTrue("Diesel"));
 
 		return modelAndView;
 	}
@@ -159,7 +159,7 @@ public class ProdutoController {
 	public ModelAndView fossil() {
 		ModelAndView modelAndView = new ModelAndView("produto/fossil");
 
-		modelAndView.addObject("produtos", produtos.findByFabricante("Fossil"));
+		modelAndView.addObject("produtos", produtos.findByFabricanteAndAtivoTrue("Fossil"));
 
 		return modelAndView;
 
@@ -169,7 +169,7 @@ public class ProdutoController {
 	public ModelAndView montblanc() {
 		ModelAndView modelAndView = new ModelAndView("produto/montblanc");
 
-		modelAndView.addObject("produtos", produtos.findByFabricante("Montblanc"));
+		modelAndView.addObject("produtos", produtos.findByFabricanteAndAtivoTrue("Montblanc"));
 
 		return modelAndView;
 
@@ -179,7 +179,7 @@ public class ProdutoController {
 	public ModelAndView xiaomi() {
 		ModelAndView modelAndView = new ModelAndView("produto/xiaomi");
 
-		modelAndView.addObject("produtos", produtos.findByFabricante("Xiaomi"));
+		modelAndView.addObject("produtos", produtos.findByFabricanteAndAtivoTrue("Xiaomi"));
 
 		return modelAndView;
 
