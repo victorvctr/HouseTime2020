@@ -9,5 +9,8 @@ import com.house_time.models.Produto;
 public interface ProdutoRepositorio extends JpaRepository <Produto,Long> {
 
 	List<Produto> findByFabricante(String string);
+	List<Produto> findByAtivoTrue();
+	List<Produto> findByAtivoFalse();
+	List<Produto> findByFabricanteAndAtivoTrue(String string);
 
 }

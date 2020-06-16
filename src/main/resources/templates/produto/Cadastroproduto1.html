@@ -1,173 +1,197 @@
 <!DOCTYPE html>
-<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="utf-8">
-    <title>TIME HOUSE</title>
-    <link rel="icon" href="/imagem/icone.jpeg" type="image/x-icon" />
+<meta charset="utf-8">
+<title>TIME HOUSE</title>
+<link rel="icon" href="/imagem/icone.jpeg" type="image/x-icon" />
 
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="/css/css.css">
-    <link rel="stylesheet" href="/css/estilo.css">
-    <link th:href="@{/webjars/font-awesome/5.8.2/css/all.css}" rel="stylesheet" />
-   <!--  <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet"> -->
-    <script th:src="@{/webjars/jquery/3.4.0/jquery.js}"></script>
-	<script th:src="@{/webjars/bootstrap/4.4.1/js/bootstrap.min.js}"></script>
+<link rel="stylesheet" href="/css/css.css">
+<link rel="stylesheet" href="/css/estilo.css">
+<link th:href="@{/webjars/font-awesome/5.8.2/css/all.css}"
+	rel="stylesheet" />
+<!--  <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet"> -->
+<script th:src="@{/webjars/jquery/3.4.0/jquery.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.4.1/js/bootstrap.min.js}"></script>
 </head>
 
 <header>
 
-    <!--menu basico-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a href="/"><img src="/imagem/housetime.png" width="60" height="60" class="d-inline-block"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="alternanavegacao">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+	<!--menu basico-->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a href="/"><img src="/imagem/housetime.png" width="60"
+			height="60" class="d-inline-block"></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#conteudoNavbarSuportado"
+			aria-controls="conteudoNavbarSuportado" aria-expanded="false"
+			aria-label="alternanavegacao">
+			<span class="navbar-toggler-icon"></span>
+		</button>
 
 
-       <div id="conteudoNavbarSuportado" class="collapse navbar-collapse">
-            <ul class="navbar-nav mr-auto">
+		<div id="conteudoNavbarSuportado" class="collapse navbar-collapse">
+			<ul class="navbar-nav mr-auto">
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Usuários</a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="/usuario/novo">Novo Usuário</a>
-                        <a class="dropdown-item" href="/usuario">Lista de Usuários</a>
-                    </div>
-                </li>
-                
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Produtos</a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="/produto/novo">Novo Produto</a>
-                        <a class="dropdown-item" href="/produto">Lista de Produtos</a>
-                    </div>
-                </li>
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+					role="button" aria-haspopup="true" aria-expanded="false">Usuários</a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="/usuario/novo">Novo Usuário</a> <a
+							class="dropdown-item" href="/usuario">Lista de Usuários</a>
+					</div></li>
 
-                
-            </ul>
-            </div>
-            </nav>
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+					role="button" aria-haspopup="true" aria-expanded="false">Produtos</a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="/produto/novo">Novo Produto</a> <a
+							class="dropdown-item" href="/produto">Lista de Produtos</a>
+					</div></li>
+
+
+			</ul>
+		</div>
+	</nav>
 </header>
 
 <body>
-<div class="cadastro-usu">
-<center><h1 class="text-center">Cadastro de Produto</h1></center>
-            <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
-            </div>
-    <form method="POST" th:object="${produto}" th:action="@{/produto/salvar}" enctype="multipart/form-data">
-        
-    <div class="alert alert-danger alert-dismissible" role="alert"
-        th:if="${#fields.hasAnyErrors()}">
-        <button type="button" class="close" data-dismiss="alert"
-            aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
+	<div class="cadastro-usu">
+		<h1 class="text-center">Cadastro de Produto</h1>
+		<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
 
- 
+		<form method="POST" th:object="${produto}"
+			th:action="@{/produto/salvar}" enctype="multipart/form-data">
 
-        <div th:each="erro: ${#fields.detailedErrors()}">
-            <i class="fa fa-exclamation-circle"></i> <span
-                th:text="${erro.message}">Mensagem erro.</span>
-        </div>
-    </div>
-    
-        <input type="hidden" th:field="*{idProd}" />
-       
+			<div class="alert alert-danger alert-dismissible" role="alert"
+				th:if="${#fields.hasAnyErrors()}">
+				<button type="button" class="close" data-dismiss="alert"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
 
-        <div class="container">
-            <div class="row">
-                
-               <div class="col-sm">
-               		<b>Fornecedor</b>
-						<select	id="cbofornecedor" class="form-control" th:field="*{fabricante}">
-								<option value="">Selecione o fornecedor</option>
-								<option th:each="fornecedor: ${fornecedores}" th:value="${fornecedor.nomeEmpresa}"
-									th:text="${fornecedor.nomeEmpresa}">Opção 1</option>		
-							</select>
+
+
+				<div th:each="erro: ${#fields.detailedErrors()}">
+					<i class="fa fa-exclamation-circle"></i> <span
+						th:text="${erro.message}">Mensagem erro.</span>
+				</div>
+			</div>
+
+			<input type="hidden" th:field="*{idProd}" />
+
+
+			<div class="container">
+				<div class="row">
+
+					<div class="col-sm">
+						<b>Fornecedor</b> <select id="cbofornecedor" class="form-control"
+							th:field="*{fabricante}">
+							<option value="">Selecione o fornecedor</option>
+							<option th:each="fornecedor: ${fornecedores}"
+								th:value="${fornecedor.nomeEmpresa}"
+								th:text="${fornecedor.nomeEmpresa}">Opção 1</option>
+								
+						</select>
 					</div>
-                <!-- <div class="col-sm">
+					<!-- <div class="col-sm">
                     <b>Fabricante:</b>
                     <input type="text" name="Fabricante" class="form-control" id="inputfabricante" placeholder="Digite o fabricante" th:field="*{fabricante}">
                 </div> -->
-                <div class="col-sm">
-                    <b>Modelo:</b>
-                    <input type="text" name="Modelo" class="form-control" id="inputmodelo" placeholder=" Modelo do produto" th:field="*{modelo}">
-                </div>
-                <div class="col-sm">
-                    <b>Pulseira:</b>
-                    <input type="text" name="Pulseira" class="form-control" placeholder=" Tipo de pulseira" th:field="*{pulseira}">
-                </div>
-				<div class="col-sm">
-                    <b>Dimensão:</b>
-                    <input type="text" name="Dimensao" class="form-control" placeholder=" Dimesão do produto" th:field="*{dimensao}">
-                </div>
-            </div>
-            
-            <div class="row">
-                
-                <div class="col-sm">
-                    <b>Cor:</b>
-                    <input type="text" name="Cor" class="form-control" placeholder=" Digite a cor" th:field="*{cor}">
-                </div>
-                <div class="col-sm">
-                    <b>Peso:</b>
-                    <input type="text" name="Peso" class="form-control" placeholder="Digite o peso" th:field="*{peso}">
-                </div>
-                <div class="col-sm">
-                    <b>Sistema:</b>
-                    <input type="text" name="Sistema" class="form-control" placeholder=" Digite o sistema" th:field="*{sistema}">
-                </div>
-                <div class="col-sm">
-                    <b>Estoque:</b>
-                    <input type="text" name="Estoque" class="form-control" placeholder=" Digite a quantidade" th:field="*{estoque}">
-                </div>
-            </div>
-            
-            <div class="row">
-                
-                <div class="col-sm-3">
-                    <b>Valor:</b>
-                    <input type="text" name="Valor" class="form-control" placeholder=" Digite o valor" th:field="*{valor}">
-                </div>
-                <div class="form-group col-sm-3">
-						
-					<a data-toggle="modal" class="btn btn-primary iit-btn-imagem" href="#"
-								th:title="'Editar Imagem'" data-target="#modalCadastroImagemProduto">
-						<i class="fas fa-camera"></i>
-					</a>
-					<label for="imagemProduto">Imagem</label>
-					<!-- Se Produto tem imagem cadastrada ou não -->
-					<div th:if="${produto.url_imagem}">
-					   	<img id="imagemProduto" class="image_upload_preview" th:src="@{/produto/imagem/{nome}(nome=${produto.url_imagem})}" title="Imagem do produto" />
-						<input name="url" type="hidden" th:field="*{url_imagem}" />
+					<div class="col-sm">
+						<b>Modelo:</b> <input type="text" name="Modelo"
+							class="form-control" id="inputmodelo"
+							placeholder=" Modelo do produto" th:field="*{modelo}">
 					</div>
-					<!-- ELSE -->
-					<div th:unless="${produto.url_imagem}">
-					   <img id="imagemProduto" class="image_upload_preview" th:src="@{/imagem/produto-sem-imagem.jpg}" title="Imagem do produto" />
+					<div class="col-sm">
+						<b>Pulseira:</b> <input type="text" name="Pulseira"
+							class="form-control" placeholder=" Tipo de pulseira"
+							th:field="*{pulseira}">
 					</div>
-						
+					<div class="col-sm">
+						<b>Dimensão:</b> <input type="text" name="Dimensao"
+							class="form-control" placeholder=" Dimesão do produto"
+							th:field="*{dimensao}">
+					</div>
 				</div>
-            </div>
-            	<div class="custom-control custom-checkbox">
-				      <br><input type="checkbox" class="custom-control-input"  id="ativo" th:field="*{ativo}">
-				      <label class="custom-control-label" for="ativo">Ativo</label>
-				    </div>
-				    </div>
-            
-            
-            <div class="botao-form">
-                <button type="submit" class="btn btn-success btn-xl">Cadastrar</button>
-                <button type="reset" class="btn btn-danger btn-xl">Limpar</button>
-            </div>
-        </div>
-        <div th:replace="produto/cadastro-foto-produto-modal :: modalImagemProduto"></div>
-    </form>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" ></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"> </script>
+				<div class="row">
+
+					<div class="col-sm">
+						<b>Cor:</b> <input type="text" name="Cor" class="form-control"
+							placeholder=" Digite a cor" th:field="*{cor}">
+					</div>
+					<div class="col-sm">
+						<b>Peso:</b> <input type="text" name="Peso" class="form-control"
+							placeholder="Digite o peso" th:field="*{peso}">
+					</div>
+					<div class="col-sm">
+						<b>Sistema:</b> <input type="text" name="Sistema"
+							class="form-control" placeholder=" Digite o sistema"
+							th:field="*{sistema}">
+					</div>
+					<div class="col-sm">
+						<b>Estoque:</b> <input type="text" name="Estoque"
+							class="form-control" placeholder=" Digite a quantidade"
+							th:field="*{estoque}">
+					</div>
+				</div>
+
+				<div class="row">
+
+					<div class="col-sm-3">
+						<b>Valor:</b> <input type="text" name="Valor" class="form-control"
+							placeholder=" Digite o valor" th:field="*{valor}">
+					</div>
+					<div class="form-group col-sm-3">
+
+						<a data-toggle="modal" class="btn btn-primary iit-btn-imagem"
+							href="#" th:title="'Editar Imagem'"
+							data-target="#modalCadastroImagemProduto"> <i
+							class="fas fa-camera"></i>
+						</a> <label for="imagemProduto">Imagem</label>
+						<!-- Se Produto tem imagem cadastrada ou não -->
+						<div th:if="${produto.url_imagem}">
+							<img id="imagemProduto" class="image_upload_preview"
+								th:src="@{/produto/imagem/{nome}(nome=${produto.url_imagem})}"
+								title="Imagem do produto" /> <input name="url" type="hidden"
+								th:field="*{url_imagem}" />
+						</div>
+						<!-- ELSE -->
+						<div th:unless="${produto.url_imagem}">
+							<img id="imagemProduto" class="image_upload_preview"
+								th:src="@{/imagem/produto-sem-imagem.jpg}"
+								title="Imagem do produto" />
+						</div>
+					</div>
+					<div class="form-group col-sm-3">
+						<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="ativo"
+							th:field="*{ativo}"> <label class="custom-control-label"
+							for="ativo">Ativo</label>
+						</div>
+					</div>
+				</div>				
+			</div>
+			<div class="botao-form">
+				<button type="submit" class="btn btn-success btn-xl">Cadastrar</button>
+				<button type="reset" class="btn btn-danger btn-xl">Limpar</button>
+			</div>
+
+			<div
+				th:replace="produto/cadastro-foto-produto-modal :: modalImagemProduto"></div>
+		</form>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js">
+		
+	</script>
 </body>
 
 </html>

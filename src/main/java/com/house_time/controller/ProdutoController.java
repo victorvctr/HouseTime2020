@@ -130,7 +130,7 @@ public class ProdutoController {
 	public ModelAndView apple() {
 		ModelAndView modelAndView = new ModelAndView("produto/apple");
 
-		modelAndView.addObject("produtos", produtos.findByFabricante("Apple"));
+		modelAndView.addObject("produtos", produtos.findByFabricanteAndAtivoTrue("Apple"));
 
 		return modelAndView;
 

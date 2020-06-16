@@ -90,9 +90,11 @@
 								<th scope="col">Modelo</th>
 								<th scope="col">Valor</th>
 								<th scope="col">Estoque</th>
+								<th scope="col">Ativo</th>
+								<th scope="col">Imagem</th>
 								<th scope="col" class="text-center">Ações</th>
 								<!-- <th scope="col">Status</th> -->
-								<th scope="col">Imagem</th>
+
 								
 								
 								
@@ -106,8 +108,7 @@
 								<td th:text="${produto.pulseira}">123</td>
 								<td th:text="${produto.dimensao}">123</td>
 								<td th:text="${produto.cor}">123</td>
-								<td th:text="${produto.peso}">123</td>
-								
+								<td th:text="${produto.peso}">123</td>					
 								<td th:text="${produto.modelo}">123</td>
 								<td th:text="${produto.valor}">123</td>
 								<td th:text="${produto.estoque}">123</td>
@@ -121,7 +122,6 @@
 									<img  id="imagemProduto" class="imagem_produto_listagem" 
 										th:src="@{/imagem/produto-sem-imagem.jpg}" title="Imagem do Produto" />
 								</td>
-								<td class="text-center" th:text="${produto.ativo}">123</td>
 								<td class="text-center">
 								<form method="POST"	th:action="@{/produto/excluir/{idProd}(idProd=${produto.idProd})}">
 										<a class="btn btn-primary btn-sm"
