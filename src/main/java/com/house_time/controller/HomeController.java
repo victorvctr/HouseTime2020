@@ -28,5 +28,12 @@ public class HomeController {
 		return mv;
 
 	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/adm")
+	public ModelAndView adm() {
+		ModelAndView mv = new ModelAndView("/adm");
+		return mv;
+
+	}
 
 }
