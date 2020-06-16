@@ -35,7 +35,10 @@ public ModelAndView novo(Contato contato) {
 	return modelAndView;
    }
 
-/*@PostMapping("/enviar")
+@PostMapping("/enviar")
 public ModelAndView enviar(@Valid Contato contato, BindingResult result, RedirectAttributes attributes) {
-*/
+	contato.setContato(contato.findByNome("Contato"));
+	return null;
+
+}
 }
