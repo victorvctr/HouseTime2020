@@ -39,7 +39,7 @@ public ModelAndView novo(Contato contato) {
    }
 
 @PostMapping("/enviar")
-public ModelAndView salvar(@Valid Contato contato, BindingResult result, RedirectAttributes attributes) {
+public ModelAndView enviar(@Valid Contato contato, BindingResult result, RedirectAttributes attributes) {
 
 	if (result.hasErrors()) {
 		return novo(contato);
