@@ -33,6 +33,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers("/cliente/salvar").permitAll()
 			.antMatchers("/index").permitAll()
 			
+				
 				/*
 				 * .antMatchers("/produto/apple").permitAll()
 				 * 
@@ -41,6 +42,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			
 			
 			.antMatchers("/produto").hasAnyRole("ADMINISTRADOR", "VISUALIZAR_PRODUTO")
+			.antMatchers("/produto").hasAnyRole("CLIENTES", "VISUALIZAR_PRODUTO")
 			.antMatchers("/produto/**").hasAnyRole("ADMINISTRADOR", "CADASTRAR_PRODUTO")
 			.antMatchers("/usuario").hasAnyRole("ADMINISTRADOR", "VISUALIZAR_USUARIO")
 			.antMatchers("/usuario/**").hasAnyRole("ADMINISTRADOR", "CADASTRAR_USUARIO")
