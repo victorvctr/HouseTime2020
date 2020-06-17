@@ -1,5 +1,7 @@
 package com.house_time.controller;
 
+
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,12 +13,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+
 import com.house_time.models.Contato;
 
 import com.house_time.repositorios.ContatoRepositorio;
 
 @Controller
-@RequestMapping("/contato")
+@RequestMapping("contato")
 public class ContatoController {
 
 	@Autowired
@@ -36,9 +39,18 @@ public ModelAndView novo(Contato contato) {
    }
 
 @PostMapping("/enviar")
-public ModelAndView enviar(@Valid Contato contato, BindingResult result, RedirectAttributes attributes) {
-	contato.setContato(contato.findByNome("Contato"));
-	return null;
+public ModelAndView salvar(@Valid Contato contato, BindingResult result, RedirectAttributes attributes) {
+
+	if (result.hasErrors()) {
+		return novo(contato);
+	}
+
+	contatos.save(contato);
+
+	attributes.addFlashAttribute("mensagem", "Produto salvo com sucesso!!");
+
+	return new ModelAndView("redirect:/contato");
 
 }
 }
+

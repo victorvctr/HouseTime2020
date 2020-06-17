@@ -88,17 +88,11 @@ public class Contato implements Serializable{
 			return false;
 		return true;
 	}
-	public Object findByNome(String string) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	public void setContato(Object findByNome) {
-		// TODO Auto-generated method stub
-		
+	
 	}
 
 	
-	}
+	
 	
 	
 	

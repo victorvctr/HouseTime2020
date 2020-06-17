@@ -57,6 +57,24 @@ public class UsuarioController {
 		return modelAndView;
 	}
 
+	
+	@GetMapping("/inativar/{id}")
+    public String inativar(@PathVariable Long id, RedirectAttributes attributes) {
+        
+        Usuario u = usuarios.getOne(id);
+        
+        u.setAtivo(false);
+        
+        usuarios.save(u);
+
+ 
+
+        attributes.addFlashAttribute("sucesso", "Usuário inativado com sucesso!!");
+        
+        return "redirect:/administracao/usuarios";
+    }
+	
+	
 	@PostMapping("/salvar")
 	public ModelAndView salvar(@Valid Usuario usuario, BindingResult result, RedirectAttributes attributes) {
 

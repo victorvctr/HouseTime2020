@@ -33,9 +33,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers("/cliente/salvar").permitAll()
 			.antMatchers("/index").permitAll()
 			
-			.antMatchers("/produto/apple").permitAll()
-			
-			.antMatchers("/produto/samsung").permitAll()
+				/*
+				 * .antMatchers("/produto/apple").permitAll()
+				 * 
+				 * .antMatchers("/produto/samsung").permitAll()
+				 */
 			
 			
 			.antMatchers("/produto").hasAnyRole("ADMINISTRADOR", "VISUALIZAR_PRODUTO")
