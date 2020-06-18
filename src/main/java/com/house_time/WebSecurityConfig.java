@@ -77,10 +77,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		    .antMatchers("/produto/detalhes/30").permitAll()
 			
 			.antMatchers("/produto").hasAnyRole("Administrador", "VISUALIZAR_PRODUTO")
-			.antMatchers("/produto").hasAnyRole("Cliente", "VISUALIZAR_PRODUTO")
-			.antMatchers("/produto").hasAnyRole("Cliente", "VISUALIZAR_DETALHES")
+				/*
+				 * .antMatchers("/produto").hasAnyRole("Cliente", "VISUALIZAR_PRODUTO")
+				 * .antMatchers("/produto").hasAnyRole("Cliente", "VISUALIZAR_DETALHES")
+				 */
 			.antMatchers("/produto/**").hasAnyRole("Administrador", "CADASTRAR_PRODUTO")
 			.antMatchers("/usuario").hasAnyRole("Administrador", "VISUALIZAR_USUARIO")
+			
 			.antMatchers("/usuario/**").hasAnyRole("Administrador", "CADASTRAR_USUARIO")
 			.anyRequest()				
 				.authenticated()
