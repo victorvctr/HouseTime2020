@@ -126,7 +126,7 @@ public class ProdutoController {
 		return fotoService.recuperarFoto(nome);
 	}
 
-	@GetMapping(value={"/Apple","/apple"})
+	@GetMapping(value={"/Marca/Apple","/marca/apple"})
 	public ModelAndView apple() {
 		ModelAndView modelAndView = new ModelAndView("produto/apple");
 
@@ -136,7 +136,7 @@ public class ProdutoController {
 
 	}
 
-	@GetMapping(value={"/Samsung","/samsung"})
+	@GetMapping(value={"/Marca/Samsung","/marca/samsung"})
 	public ModelAndView sansung() {
 		ModelAndView modelAndView = new ModelAndView("produto/samsung");
 
@@ -146,7 +146,7 @@ public class ProdutoController {
 
 	}
 
-	@GetMapping(value={"/Diesel","/diesel"})
+	@GetMapping(value={"/Marca/Diesel","/marca/diesel"})
 	public ModelAndView diesel() {
 		ModelAndView modelAndView = new ModelAndView("produto/diesel");
 
@@ -155,7 +155,7 @@ public class ProdutoController {
 		return modelAndView;
 	}
 
-	@GetMapping(value={"/Fossil","/fossil"})
+	@GetMapping(value={"/Marca/Fossil","/marca/fossil"})
 	public ModelAndView fossil() {
 		ModelAndView modelAndView = new ModelAndView("produto/fossil");
 
@@ -165,7 +165,7 @@ public class ProdutoController {
 
 	}
 
-	@GetMapping(value={"/Montblanc","/montblanc"})
+	@GetMapping(value={"/Marca/Montblanc","/marca/montblanc"})
 	public ModelAndView montblanc() {
 		ModelAndView modelAndView = new ModelAndView("produto/montblanc");
 
@@ -175,7 +175,7 @@ public class ProdutoController {
 
 	}
 
-	@GetMapping(value={"/Xiaomi","/xiaomi"})
+	@GetMapping(value={"/Marca/Xiaomi","/marca/xiaomi"})
 	public ModelAndView xiaomi() {
 		ModelAndView modelAndView = new ModelAndView("produto/xiaomi");
 
