@@ -36,6 +36,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers("/produto/imagem/**").permitAll()
 			.antMatchers("/produto/detalhes/**").permitAll()
 			.antMatchers("/adm").hasAnyRole("ADMINISTRADOR")
+			.antMatchers("/produto/novo").hasAnyRole("ADMINISTRADOR")
 			.antMatchers("/produto").hasAnyRole("ADMINISTRADOR")
 			.antMatchers("/usuario").hasAnyRole("ADMINISTRADOR", "VISUALIZAR_USUARIO")
 			.antMatchers("/usuario/**").hasAnyRole("ADMINISTRADOR", "CADASTRAR_USUARIO")
