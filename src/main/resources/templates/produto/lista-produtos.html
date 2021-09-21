@@ -1,57 +1,62 @@
 <!DOCTYPE html>
 <html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
+
 <head>
 <meta charset="utf-8">
 <title>TIME HOUSE</title>
 <link rel="icon" href="/imagem/icone.jpeg" type="image/x-icon" />
- <link rel="stylesheet" href="/css/bootstrap.min.css">
-<link rel="stylesheet" th:href="@{/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css}">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css">
 
 <link rel="stylesheet" href="/css/css.css">
-
 <link rel="stylesheet" href="/css/estilo.css">
-
-<link th:href="@{/webjars/font-awesome/5.8.2/css/all.css}" rel="stylesheet" />
-
+<link th:href="@{/webjars/font-awesome/5.8.2/css/all.css}"
+	rel="stylesheet" />
+<!--  <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet"> -->
 <script th:src="@{/webjars/jquery/3.4.0/jquery.js}"></script>
-<script th:src="@{/webjars/bootstrap/4.4.1-1/js/bootstrap.min.js}"></script>
-
-
+<script th:src="@{/webjars/bootstrap/4.4.1/js/bootstrap.min.js}"></script>
 </head>
 
 	<header>
-    <!--menu basico-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a href="/"><img src="/imagem/housetime.png" width="60" height="60" class="d-inline-block"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="alternanavegacao">
-            <span class="navbar-toggler-icon"></span>
-        </button>
 
-        <div id="conteudoNavbarSuportado" class="collapse navbar-collapse">
-            <ul class="navbar-nav mr-auto">
+	<!--menu basico-->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a href="/"><img src="/imagem/housetime.png" width="60"
+			height="60" class="d-inline-block"></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#conteudoNavbarSuportado"
+			aria-controls="conteudoNavbarSuportado" aria-expanded="false"
+			aria-label="alternanavegacao">
+			<span class="navbar-toggler-icon"></span>
+		</button>
 
-                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Produtos</a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="/produto/novo">Novo Produto</a>
-                        <a class="dropdown-item" href="/produto">Lista de Produtos</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Usuários</a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="/usuario/novo">Novo Usuário</a>
-                        <a class="dropdown-item" href="/usuario">Lista de Usuários</a>
-                    </div>
-                </li>
-                
-               
-            </ul>
-            
-        </div>
-    </nav>
+
+		<div id="conteudoNavbarSuportado" class="collapse navbar-collapse">
+			<ul class="navbar-nav mr-auto">
+
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+					role="button" aria-haspopup="true" aria-expanded="false">Usuários</a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="/usuario/novo">Novo Usuário</a> <a
+							class="dropdown-item" href="/usuario">Lista de Usuários</a>
+					</div></li>
+
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+					role="button" aria-haspopup="true" aria-expanded="false">Produtos</a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="produto/novo">Novo Produto</a> <a
+							class="dropdown-item" href="produto">Lista de Produtos</a>
+					</div></li>
+
+
+			</ul>
+		</div>
+	</nav>
 </header>
+
 
 <body>
 <div class="container">
